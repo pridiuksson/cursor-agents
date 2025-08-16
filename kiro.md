@@ -681,521 +681,485 @@ class KiroIntegrationTester {
 
 This enhanced Phase 2 plan addresses all critical gaps identified in the analysis and provides a comprehensive implementation that seamlessly integrates with your proven multi-agent system while adding Kiro's systematic spec-driven development capabilities.
 
-### **Phase 3: Kiro's Dynamic Steering Intelligence**
+### **Phase 3: Design Document Generation System**
 
-**What Kiro Adds**: Context-aware behavior adaptation that goes beyond static enhancement
+**What Phase 2 Revealed**: The requirements system is comprehensive and ready for the next logical step - intelligent design document generation that builds on the validated requirements foundation.
 
-**Kiro's Unique Steering Approach**:
-- **Project Intelligence**: Deep understanding of project context and history
-- **Dynamic Adaptation**: Behavior changes based on current work context
-- **Learning System**: Kiro learns from patterns and improves steering over time
-- **Contextual Awareness**: Different behavior for different file types, project phases, etc.
+**Phase 3 Focus**: Transform validated requirements into comprehensive design documents with architectural intelligence and project context awareness.
 
-**Kiro's Steering Examples**:
+**Key Insights from Phase 2**:
+- Requirements system provides rich context for design decisions
+- Template infrastructure is robust and extensible
+- Validation framework ensures quality and consistency
+- Integration patterns are well-established
+
+**Phase 3 Approach**:
+- **Requirements-Driven Design**: Use Phase 2 requirements as authoritative input
+- **Architectural Intelligence**: Leverage project context for design decisions
+- **Pattern Recognition**: Apply existing architectural patterns consistently
+- **Collaborative Design**: Interactive design sessions with stakeholder input
+- **Validation Integration**: Ensure designs meet architectural standards
+
+**Design Generation Examples**:
 ```markdown
-# .kiro/steering/project-context.md
-## Kiro's Project Intelligence (Always Applied)
-**Project**: Playable Character Cards - AI-generated character mini-games
-**Architecture**: Supabase + Deno Edge Functions + TypeScript
-**Quality Philosophy**: Real API testing, code-first documentation, security-first
+# Design Document: Real-Time Multiplayer Card Battles
+## Generated from: .kiro/specs/multiplayer-battles/requirements.md
+## Architecture Context: Supabase + Deno Edge Functions + TypeScript
 
-**Kiro's Enhanced Context for ALL agents**:
-- Understand this is a production system, not a prototype
-- Recognize the sophisticated multi-agent coordination already in place
-- Respect the single entry point philosophy (agents.md)
-- Maintain the high quality standards already established
+### System Architecture (Kiro-Generated)
+Based on requirements analysis, this feature requires:
+- **Real-time Communication**: Supabase Realtime for WebSocket connections
+- **State Management**: PostgreSQL with RLS for battle state persistence
+- **Edge Function Logic**: Stateless battle logic in Deno Edge Functions
+- **Authentication Integration**: Existing auth system for player identification
 
-# .kiro/steering/file-patterns/edge-functions.md
-## Kiro's Edge Function Intelligence (Conditional: supabase/functions/**)
-**Context**: Working on Supabase Edge Function
-**Kiro's Dynamic Behavior**:
-- Auto-load import_map.json patterns for dependency suggestions
-- Recognize AI Adapter Pattern requirements and suggest appropriate adapters
-- Understand stateless function requirements and flag stateful patterns
-- Auto-suggest error handling patterns from existing ADRs
-- Recognize testing requirements and suggest test file creation
+### Component Design (Requirements-Driven)
+**Battle Manager Component**:
+- Requirement: "WHEN user submits move THEN system SHALL update battle state within 100ms"
+- Design: Stateless Edge Function with optimized database queries
+- Pattern: AI Adapter Pattern for move validation if AI assistance enabled
 
-# .kiro/steering/file-patterns/tests.md
-## Kiro's Testing Intelligence (Conditional: tests/**)
-**Context**: Working on test files
-**Kiro's Dynamic Behavior**:
-- Enforce real API testing philosophy (no mocking)
-- Suggest integration test patterns from existing test files
-- Auto-load environment variable requirements
-- Recognize test data patterns and suggest fixtures
-- Understand quality gate requirements for test coverage
+**Real-time Synchronization**:
+- Requirement: "IF connection lost THEN system SHALL maintain battle state for 5 minutes"
+- Design: Supabase Realtime with connection recovery and state persistence
+- Pattern: Existing RLS patterns for secure state access
 
-# .kiro/steering/manual-contexts/security-review.md
-## Kiro's Security Intelligence (Manual: #security-review)
-**Context**: Security-critical work requested
-**Kiro's Enhanced Behavior**:
-- Auto-invoke Qwen Code consultation patterns
-- Apply enhanced scrutiny to input validation
-- Recognize credential handling patterns and enforce security rules
-- Suggest security testing patterns
-- Flag potential security anti-patterns
+### Data Models (Constraint-Aware)
+Based on technical constraints from requirements:
+- Extends existing card system tables
+- Follows established RLS security patterns
+- Integrates with current authentication system
 ```
 
-**Key Difference**: Kiro's steering is dynamic and intelligent, not just static rule enhancement.
+**Key Difference**: Phase 3 builds directly on Phase 2's validated requirements rather than creating parallel steering systems.
 
 ---
 
-## **🔧 ENHANCED PHASE 3 IMPLEMENTATION PLAN**
+## **🔧 REVISED PHASE 3 IMPLEMENTATION PLAN**
 
-### **Critical Integration with Phase 2**
+### **Critical Insights from Phase 2 Implementation**
 
-Phase 3 builds directly on the Phase 2 template and spec infrastructure, creating a comprehensive steering intelligence system that integrates seamlessly with the systematic spec workflow.
+Phase 2 revealed that the requirements system is comprehensive and self-contained. Rather than building parallel steering systems, Phase 3 should focus on the next logical step in the spec workflow: **intelligent design document generation**.
 
-#### **Phase 2 → Phase 3 Integration Points**:
-- **Template Integration**: Steering templates integrate with Phase 2's `.kiro/templates/` system
-- **Spec Context**: Steering intelligence is available during spec creation and task execution
-- **Validation Framework**: Steering rules validated against Phase 2's validation system
-- **Context Propagation**: Steering context flows through Phase 2's context preservation system
+#### **Phase 2 → Phase 3 Natural Progression**:
+- **Requirements Foundation**: Phase 2 provides validated, comprehensive requirements
+- **Design Intelligence**: Phase 3 transforms requirements into architectural designs
+- **Template Reuse**: Leverage Phase 2's robust template infrastructure
+- **Validation Integration**: Extend Phase 2's validation framework to design documents
+- **Context Preservation**: Maintain Phase 2's context preservation through design phase
 
-### **Enhanced Phase 3 Roadmap**
+### **Revised Phase 3 Roadmap: Design Document Generation**
 
-#### **Day 1-2: Steering Template Infrastructure & Integration** 🆕 **CRITICAL ADDITION**
+#### **Day 1-2: Design Template Infrastructure** 🆕 **FOCUSED APPROACH**
 
-**Create Steering Template System**:
+**Create Design Template System**:
 ```
 .kiro/templates/
-├── steering-templates/
-│   ├── project-context.md.template     # Always-applied project intelligence
-│   ├── file-pattern.md.template        # Conditional context templates
-│   ├── manual-context.md.template      # User-invoked context templates
-│   └── learning-pattern.md.template    # Adaptive learning templates
-├── steering-validation/
-│   ├── context-validation.md           # Steering context validation rules
-│   ├── conflict-detection.md           # .cursor/rules/ conflict detection
-│   └── integration-checks.md           # Phase 2 integration validation
-└── steering-examples/
-    ├── edge-functions-pattern/          # Reference implementation
-    ├── testing-intelligence/            # Testing context example
-    └── security-review-context/         # Security context example
+├── design-templates/
+│   ├── design.md.template              # Main design document template
+│   ├── architecture-section.template   # Architecture-specific sections
+│   ├── component-design.template       # Component design patterns
+│   └── integration-design.template     # Integration point designs
+├── design-validation/
+│   ├── architecture-compliance.md      # Supabase + Edge Functions validation
+│   ├── pattern-consistency.md          # Existing pattern validation
+│   └── design-completeness.md          # Design completeness checks
+└── design-examples/
+    ├── multiplayer-battles/             # Reference design implementation
+    ├── api-integration/                 # API design patterns
+    └── real-time-features/              # Real-time design patterns
 ```
 
-**Steering Template Features**:
-- **Phase 2 Integration**: Templates reference spec context and validation systems
-- **Dynamic Context Loading**: Templates include context propagation mechanisms
-- **Conflict Prevention**: Templates include .cursor/rules/ alignment checks
-- **Learning Adaptation**: Templates support pattern learning and improvement
+**Design Template Features**:
+- **Requirements Integration**: Templates consume Phase 2 requirements as input
+- **Architectural Intelligence**: Templates understand project architecture patterns
+- **Pattern Application**: Templates apply existing architectural patterns consistently
+- **Validation Ready**: Templates include validation checkpoints
 
-**Project Context Template Structure**:
+**Design Document Template Structure**:
 ```markdown
-# Project Context Template: {CONTEXT_NAME}
+# Design Document: {FEATURE_NAME}
+## Generated from: {REQUIREMENTS_PATH}
+## Architecture Context: {PROJECT_ARCHITECTURE}
 
-## Integration Points
-**Phase 2 Specs**: Available during spec creation and task execution
-**Template System**: Integrates with .kiro/templates/validation/
-**Context Engine**: Links to Phase 2 context preservation system
+### Overview (Requirements-Driven)
+**Feature Purpose**: {REQUIREMENTS_SUMMARY}
+**Stakeholder**: {STAKEHOLDER_ROLE}
+**Complexity**: {COMPLEXITY_ANALYSIS}
 
-## Dynamic Context (Always Applied)
-**Project**: {PROJECT_NAME}
-**Architecture**: {ARCHITECTURE_STACK}
-**Quality Philosophy**: {QUALITY_STANDARDS}
-**Agent Coordination**: Respects .cursor/rules/ specializations
+### System Architecture (Pattern-Aware)
+Based on requirements analysis and existing patterns:
+- **Primary Components**: {COMPONENT_ANALYSIS}
+- **Integration Points**: {INTEGRATION_REQUIREMENTS}
+- **Data Flow**: {DATA_FLOW_DESIGN}
+- **Security Considerations**: {SECURITY_REQUIREMENTS}
 
-### Context Propagation Rules
-- **Spec Creation**: Context available during requirements gathering
-- **Design Phase**: Context informs architectural decisions
-- **Task Generation**: Context influences agent assignments
-- **Task Execution**: Context available to executing agents
+### Component Design (Constraint-Compliant)
+{COMPONENT_DESIGNS}
 
-### Learning Patterns
-- **Pattern Recognition**: {LEARNING_MECHANISMS}
-- **Adaptation Rules**: {ADAPTATION_LOGIC}
-- **Feedback Integration**: {FEEDBACK_PROCESSING}
+### Data Models (RLS-Aware)
+{DATA_MODEL_DESIGNS}
 
-### Validation Checks
-- **No Conflicts**: Ensure no contradiction with .cursor/rules/
-- **Integration**: Validate Phase 2 context system integration
-- **Quality Gates**: Preserve all existing quality requirements
+### API Design (Edge-Function-Ready)
+{API_ENDPOINT_DESIGNS}
+
+### Testing Strategy (Real-API-Testing)
+{TESTING_APPROACH}
+
+### Implementation Considerations
+{IMPLEMENTATION_NOTES}
 ```
 
-#### **Day 3-4: Dynamic Context Intelligence System** ✅ **SIGNIFICANTLY ENHANCED**
+#### **Day 3-4: Interactive Design Generation System** ✅ **REQUIREMENTS-DRIVEN**
 
-**Context Intelligence Engine**:
+**Design Generation Engine**:
 ```javascript
-class KiroSteeringIntelligence {
+class KiroDesignGenerator {
   constructor() {
-    this.phase2Integration = new Phase2ContextBridge();
-    this.templateSystem = new SteeringTemplateEngine();
-    this.learningEngine = new PatternLearningSystem();
-    this.validationSystem = new SteeringValidator();
+    this.requirementsIntegration = new RequirementsIntegration();
+    this.architecturalIntelligence = new ArchitecturalIntelligence();
+    this.patternLibrary = new PatternLibrary();
+    this.validationSystem = new DesignValidator();
   }
   
-  async initializeSteering(projectContext) {
-    // Load Phase 2 template and validation systems
-    const phase2Context = await this.phase2Integration.loadSpecContext();
-    const templates = await this.templateSystem.loadSteeringTemplates();
+  async generateDesign(requirementsPath) {
+    // Load validated requirements from Phase 2
+    const requirements = await this.requirementsIntegration.loadRequirements(requirementsPath);
     
-    // Create integrated steering context
-    const steeringContext = await this.createSteeringContext({
-      projectContext,
-      phase2Context,
-      templates
+    // Analyze architectural implications
+    const architecturalAnalysis = await this.architecturalIntelligence.analyzeRequirements(requirements);
+    
+    // Apply existing patterns
+    const applicablePatterns = await this.patternLibrary.findApplicablePatterns(requirements);
+    
+    // Generate design sections
+    const design = await this.generateDesignSections({
+      requirements,
+      architecturalAnalysis,
+      applicablePatterns
     });
     
-    // Validate against .cursor/rules/
-    const validation = await this.validationSystem.validateSteering(steeringContext);
+    // Validate design against project standards
+    const validation = await this.validationSystem.validateDesign(design);
     
-    return { steeringContext, validation };
+    return { design, validation };
   }
   
-  async applyContextualSteering(workContext) {
-    // Determine appropriate steering based on work context
-    const applicableSteering = await this.selectApplicableSteering(workContext);
-    
-    // Integrate with Phase 2 spec context if available
-    const specContext = await this.phase2Integration.getSpecContext(workContext);
-    
-    // Apply dynamic steering with full context
-    return await this.applyDynamicSteering({
-      steering: applicableSteering,
-      specContext: specContext,
-      workContext: workContext
-    });
-  }
-}
-```
-
-**🆕 File Pattern Intelligence System**:
-```javascript
-class KiroFilePatternIntelligence {
-  async analyzeFileContext(filePath, fileContent) {
-    // Determine file type and applicable patterns
-    const fileType = this.analyzeFileType(filePath);
-    const patterns = await this.loadApplicablePatterns(fileType);
-    
-    // Load Phase 2 spec context if file is part of spec
-    const specContext = await this.getSpecContextForFile(filePath);
-    
-    // Generate contextual intelligence
-    const intelligence = await this.generateFileIntelligence({
-      fileType,
-      patterns,
-      specContext,
-      projectContext: await this.getProjectContext()
-    });
-    
-    return intelligence;
-  }
-  
-  async generateEdgeFunctionIntelligence(filePath, content) {
+  async generateDesignSections(context) {
     return {
-      patterns: await this.loadEdgeFunctionPatterns(),
-      dependencies: await this.analyzeDependencyPatterns(content),
-      aiAdapterSuggestions: await this.suggestAIAdapterPatterns(content),
-      testingSuggestions: await this.suggestTestingPatterns(filePath),
-      specContext: await this.getSpecContextForFile(filePath)
+      overview: await this.generateOverview(context.requirements),
+      architecture: await this.generateArchitecture(context.architecturalAnalysis),
+      components: await this.generateComponents(context.requirements, context.applicablePatterns),
+      dataModels: await this.generateDataModels(context.requirements),
+      apiDesign: await this.generateAPIDesign(context.requirements),
+      testingStrategy: await this.generateTestingStrategy(context.requirements)
     };
   }
 }
 ```
 
-**Enhanced File Pattern Features**:
-- **Spec Integration**: File patterns understand when files are part of active specs
-- **Context Awareness**: Patterns adapt based on spec requirements and design decisions
-- **Learning Integration**: Patterns improve based on project-specific usage
-- **Validation**: All patterns validated against .cursor/rules/ and quality gates
-
-#### **Day 5-6: Learning & Adaptation Engine** ⚠️ **SIGNIFICANTLY ENHANCED**
-
-**Pattern Learning System**:
+**🆕 Architectural Intelligence System**:
 ```javascript
-class KiroLearningEngine {
+class KiroArchitecturalIntelligence {
+  async analyzeRequirements(requirements) {
+    // Analyze requirements for architectural implications
+    const analysis = {
+      componentNeeds: await this.analyzeComponentNeeds(requirements),
+      integrationPoints: await this.analyzeIntegrationPoints(requirements),
+      dataRequirements: await this.analyzeDataRequirements(requirements),
+      performanceImplications: await this.analyzePerformanceRequirements(requirements),
+      securityImplications: await this.analyzeSecurityRequirements(requirements)
+    };
+    
+    return analysis;
+  }
+  
+  async generateArchitecturalRecommendations(analysis) {
+    const recommendations = {
+      components: await this.recommendComponents(analysis.componentNeeds),
+      patterns: await this.recommendPatterns(analysis.integrationPoints),
+      dataArchitecture: await this.recommendDataArchitecture(analysis.dataRequirements),
+      performanceStrategy: await this.recommendPerformanceStrategy(analysis.performanceImplications),
+      securityStrategy: await this.recommendSecurityStrategy(analysis.securityImplications)
+    };
+    
+    return recommendations;
+  }
+}
+```
+
+**Enhanced Design Features**:
+- **Requirements Traceability**: Every design decision traces back to specific requirements
+- **Pattern Application**: Automatically applies existing architectural patterns
+- **Constraint Compliance**: Ensures design meets all technical constraints
+- **Validation Integration**: Validates design against project standards
+
+#### **Day 5-6: Design Validation & Refinement System** ⚠️ **QUALITY-FOCUSED**
+
+**Design Validation System**:
+```javascript
+class KiroDesignValidator {
   constructor() {
-    this.patternDatabase = new PatternDatabase();
-    this.adaptationRules = new AdaptationRuleEngine();
-    this.phase2Integration = new Phase2ContextBridge();
-    this.validationSystem = new LearningValidator();
+    this.architecturalValidator = new ArchitecturalValidator();
+    this.patternValidator = new PatternValidator();
+    this.requirementsValidator = new RequirementsTraceabilityValidator();
+    this.constraintValidator = new ConstraintComplianceValidator();
   }
   
-  async learnFromSpecDevelopment(specPath) {
-    // Analyze completed spec for patterns
-    const spec = await this.phase2Integration.loadSpec(specPath);
-    const patterns = await this.extractPatternsFromSpec(spec);
-    
-    // Learn from requirements → design → tasks flow
-    const workflowPatterns = await this.analyzeWorkflowPatterns(spec);
-    
-    // Learn from agent interactions and decisions
-    const agentPatterns = await this.analyzeAgentPatterns(spec);
-    
-    // Update steering intelligence
-    await this.updateSteeringIntelligence({
-      patterns,
-      workflowPatterns,
-      agentPatterns
-    });
-    
-    return this.generateLearningReport();
-  }
-  
-  async adaptSteeringRules(learningData) {
-    // Validate learning against .cursor/rules/
-    const validation = await this.validationSystem.validateLearning(learningData);
-    
-    if (validation.conflicts.length > 0) {
-      // Resolve conflicts in favor of .cursor/rules/
-      learningData = await this.resolveConflicts(learningData, validation.conflicts);
-    }
-    
-    // Apply validated learning to steering rules
-    await this.updateSteeringRules(learningData);
-    
-    // Update Phase 2 integration points
-    await this.phase2Integration.updateContextIntegration(learningData);
-    
-    return validation;
-  }
-}
-```
-
-**🆕 Context Propagation System**:
-```javascript
-class KiroContextPropagation {
-  async propagateSteeringContext(steeringContext, targetContext) {
-    // Determine propagation rules based on target
-    const propagationRules = await this.getPropagationRules(targetContext);
-    
-    // Integrate with Phase 2 context system
-    const phase2Context = await this.getPhase2Context(targetContext);
-    
-    // Create integrated context
-    const integratedContext = await this.integrateContexts({
-      steering: steeringContext,
-      phase2: phase2Context,
-      target: targetContext
-    });
-    
-    // Validate context integration
-    const validation = await this.validateContextIntegration(integratedContext);
-    
-    return { integratedContext, validation };
-  }
-  
-  async makeContextAvailableToAgent(agentId, taskId) {
-    // Get all applicable context for agent and task
-    const contexts = await Promise.all([
-      this.getSteeringContext(agentId),
-      this.getPhase2SpecContext(taskId),
-      this.getProjectContext(),
-      this.getFilePatternContext(taskId)
-    ]);
-    
-    // Integrate and prioritize contexts
-    const integratedContext = await this.integrateAgentContext(contexts);
-    
-    return integratedContext;
-  }
-}
-```
-
-#### **Day 7: Validation & Integration Testing** 🆕 **CRITICAL ADDITION**
-
-**🆕 Steering Validation System**:
-```javascript
-class KiroSteeringValidator {
-  async validateSteeringSystem() {
-    // Comprehensive validation of steering system
+  async validateDesign(design, requirements) {
+    // Comprehensive design validation
     const validations = await Promise.all([
-      this.validateTemplateIntegration(),
-      this.validatePhase2Integration(),
-      this.validateCursorRulesAlignment(),
-      this.validateContextPropagation(),
-      this.validateLearningSystem()
+      this.architecturalValidator.validate(design),
+      this.patternValidator.validate(design),
+      this.requirementsValidator.validate(design, requirements),
+      this.constraintValidator.validate(design, requirements.technicalConstraints)
     ]);
     
     return this.generateValidationReport(validations);
   }
   
-  async validateTemplateIntegration() {
+  async validateArchitecturalCompliance(design) {
     return {
-      templateSystem: await this.checkTemplateSystemIntegrity(),
-      phase2Integration: await this.checkPhase2TemplateIntegration(),
-      validationRules: await this.checkValidationRuleIntegrity()
+      supabaseCompliance: await this.checkSupabasePatterns(design),
+      edgeFunctionCompliance: await this.checkEdgeFunctionPatterns(design),
+      typescriptCompliance: await this.checkTypescriptPatterns(design),
+      rlsCompliance: await this.checkRLSPatterns(design)
     };
   }
   
-  async validateCursorRulesAlignment() {
-    // Ensure no steering rule conflicts with .cursor/rules/
-    const cursorRules = await this.loadCursorRules();
-    const steeringRules = await this.loadSteeringRules();
-    
-    const conflicts = await this.detectConflicts(cursorRules, steeringRules);
-    
-    return {
-      conflicts: conflicts,
-      alignment: conflicts.length === 0,
-      resolutionSuggestions: await this.generateResolutionSuggestions(conflicts)
+  async validateRequirementsTraceability(design, requirements) {
+    // Ensure every requirement is addressed in design
+    const traceability = {
+      userStories: await this.traceUserStories(design, requirements.userStories),
+      acceptanceCriteria: await this.traceAcceptanceCriteria(design, requirements.acceptanceCriteria),
+      technicalConstraints: await this.traceTechnicalConstraints(design, requirements.technicalConstraints)
     };
+    
+    return traceability;
   }
 }
 ```
 
-**🆕 Integration Testing Framework**:
+**🆕 Interactive Design Refinement**:
 ```javascript
-class KiroSteeringIntegrationTester {
-  async testCompleteSteeringWorkflow() {
-    // Test: Steering → Spec Creation → Task Execution → Learning
-    const testResults = {
-      steeringApplication: await this.testSteeringApplication(),
-      specIntegration: await this.testSpecIntegration(),
-      contextPropagation: await this.testContextPropagation(),
-      learningAdaptation: await this.testLearningAdaptation(),
-      validationSystem: await this.testValidationSystem()
-    };
+class KiroDesignRefinement {
+  async refineDesignInteractively(design, validationResults) {
+    // Interactive refinement based on validation feedback
+    const refinements = [];
     
-    return this.generateIntegrationReport(testResults);
+    for (const issue of validationResults.issues) {
+      const refinement = await this.suggestRefinement(issue, design);
+      refinements.push(refinement);
+    }
+    
+    // Apply refinements and re-validate
+    const refinedDesign = await this.applyRefinements(design, refinements);
+    const revalidation = await this.validateRefinedDesign(refinedDesign);
+    
+    return { refinedDesign, revalidation };
   }
   
-  async testSpecIntegration() {
-    // Test steering integration with Phase 2 spec system
-    const testSpec = await this.createTestSpec();
-    
-    // Verify steering context available during spec creation
-    const requirementsContext = await this.testRequirementsContext(testSpec);
-    const designContext = await this.testDesignContext(testSpec);
-    const taskContext = await this.testTaskExecutionContext(testSpec);
-    
-    return {
-      requirementsContext,
-      designContext,
-      taskContext,
-      overallIntegration: this.assessOverallIntegration([
-        requirementsContext,
-        designContext,
-        taskContext
-      ])
-    };
-  }
-}
-```
-
-### **Enhanced Success Criteria**
-
-#### **Phase 3 Completion Checklist**:
-- [ ] **Template Integration**: Steering templates integrate with Phase 2 system
-- [ ] **Dynamic Context**: Context intelligence adapts to work patterns
-- [ ] **File Pattern Intelligence**: Context-aware file-specific behavior
-- [ ] **Learning System**: Pattern learning and adaptation functional
-- [ ] **Context Propagation**: Steering context available across all workflows
-- [ ] **Phase 2 Integration**: Seamless integration with spec system
-- [ ] **Validation System**: All steering validated against .cursor/rules/
-- [ ] **Integration Testing**: Complete steering workflow tested
-
-#### **Quality Gates**:
-- [ ] No conflicts with .cursor/rules/ agent specializations
-- [ ] Steering enhances without disrupting existing workflows
-- [ ] Context propagation works across Phase 2 spec system
-- [ ] Learning system improves steering without breaking patterns
-- [ ] All steering rules validated against project standards
-- [ ] Integration testing passes for all steering workflows
-
-### **Technical Implementation Details**
-
-#### **Steering Context Storage System**:
-```json
-// .kiro/context/steering-context.json
-{
-  "steeringContexts": {
-    "project-context": {
-      "templatePath": ".kiro/templates/steering-templates/project-context.md.template",
-      "appliesTo": "all-agents",
-      "phase2Integration": true,
-      "lastUpdated": "2025-01-16T10:30:00Z"
-    },
-    "edge-function-pattern": {
-      "templatePath": ".kiro/templates/steering-templates/file-pattern.md.template",
-      "appliesTo": "supabase/functions/**/*.ts",
-      "contextTriggers": ["file-open", "file-save", "spec-task-execution"],
-      "phase2Integration": true
+  async suggestRefinement(issue, design) {
+    // Generate specific refinement suggestions based on issue type
+    switch (issue.category) {
+      case 'architectural_compliance':
+        return await this.suggestArchitecturalFix(issue, design);
+      case 'pattern_consistency':
+        return await this.suggestPatternFix(issue, design);
+      case 'requirements_traceability':
+        return await this.suggestTraceabilityFix(issue, design);
+      default:
+        return await this.suggestGenericFix(issue, design);
     }
   }
 }
 ```
 
-#### **Learning Pattern Storage**:
+#### **Day 7: Integration & Task Generation Bridge** 🆕 **WORKFLOW COMPLETION**
+
+**🆕 Design-to-Tasks Bridge System**:
+```javascript
+class KiroDesignToTasksBridge {
+  async generateTasksFromDesign(designPath, requirementsPath) {
+    // Load design and requirements
+    const design = await this.loadDesign(designPath);
+    const requirements = await this.loadRequirements(requirementsPath);
+    
+    // Analyze design for task generation
+    const taskAnalysis = await this.analyzeDesignForTasks(design);
+    
+    // Generate implementation tasks
+    const tasks = await this.generateImplementationTasks({
+      design,
+      requirements,
+      taskAnalysis
+    });
+    
+    // Validate tasks against agent patterns
+    const taskValidation = await this.validateTasks(tasks);
+    
+    return { tasks, taskValidation };
+  }
+  
+  async generateImplementationTasks(context) {
+    return {
+      foundationTasks: await this.generateFoundationTasks(context.design),
+      componentTasks: await this.generateComponentTasks(context.design),
+      integrationTasks: await this.generateIntegrationTasks(context.design),
+      testingTasks: await this.generateTestingTasks(context.design, context.requirements),
+      documentationTasks: await this.generateDocumentationTasks(context.design)
+    };
+  }
+}
+```
+
+**🆕 Complete Spec Workflow Integration**:
+```javascript
+class KiroCompleteSpecWorkflow {
+  async executeCompleteWorkflow(featureName, initialInput) {
+    // Phase 2: Requirements (Already implemented)
+    const requirements = await this.requirementsSystem.gatherRequirements(featureName, initialInput);
+    
+    // Phase 3: Design (New implementation)
+    const design = await this.designSystem.generateDesign(requirements.path);
+    
+    // Phase 3: Tasks (New implementation)
+    const tasks = await this.taskSystem.generateTasks(design.path, requirements.path);
+    
+    // Integration: Bridge to existing workflow
+    const backlogIntegration = await this.bridgeToBacklog(tasks);
+    
+    return {
+      spec: {
+        requirements: requirements.path,
+        design: design.path,
+        tasks: tasks.path
+      },
+      backlogIntegration,
+      workflowComplete: true
+    };
+  }
+}
+```
+
+### **Revised Success Criteria**
+
+#### **Phase 3 Completion Checklist**:
+- [ ] **Design Template System**: Comprehensive design document templates
+- [ ] **Requirements Integration**: Design generation from Phase 2 requirements
+- [ ] **Architectural Intelligence**: Project-aware design recommendations
+- [ ] **Pattern Application**: Consistent application of existing patterns
+- [ ] **Design Validation**: Comprehensive validation against project standards
+- [ ] **Interactive Refinement**: Guided design improvement process
+- [ ] **Task Generation**: Design-driven task generation
+- [ ] **Workflow Integration**: Complete requirements → design → tasks workflow
+
+#### **Quality Gates**:
+- [ ] All designs trace back to specific requirements
+- [ ] All designs comply with project architectural patterns
+- [ ] All designs pass validation against technical constraints
+- [ ] Generated tasks respect existing agent specializations
+- [ ] Complete workflow maintains context preservation
+- [ ] Integration with existing PROJECT_BACKLOG.md workflow
+
+### **Technical Implementation Details**
+
+#### **Design Context Storage System**:
 ```json
-// .kiro/learning/pattern-database.json
+// .kiro/context/design-context.json
 {
-  "learnedPatterns": {
-    "websocket-implementation": {
-      "source": ".kiro/specs/multiplayer-battles/",
-      "pattern": "supabase-realtime-preferred",
-      "confidence": 0.95,
-      "applicableContexts": ["real-time-features"],
-      "steeringUpdates": [
-        ".kiro/steering/file-patterns/edge-functions.md"
+  "designContexts": {
+    "multiplayer-battles": {
+      "requirementsPath": ".kiro/specs/multiplayer-battles/requirements.md",
+      "designPath": ".kiro/specs/multiplayer-battles/design.md",
+      "validationScore": 95.2,
+      "architecturalPatterns": ["supabase-realtime", "rls-security", "edge-functions"],
+      "lastUpdated": "2025-01-16T10:30:00Z"
+    }
+  }
+}
+```
+
+#### **Design Validation Results**:
+```json
+// .kiro/validation/design-validation.json
+{
+  "validationResults": {
+    "multiplayer-battles": {
+      "overallScore": 95.2,
+      "architecturalCompliance": 98.0,
+      "patternConsistency": 94.5,
+      "requirementsTraceability": 96.8,
+      "constraintCompliance": 91.2,
+      "issues": [],
+      "warnings": [
+        "Consider adding error handling patterns for WebSocket disconnections"
+      ],
+      "suggestions": [
+        "Add performance monitoring for real-time operations"
       ]
     }
   }
 }
 ```
 
-This enhanced Phase 3 plan provides comprehensive steering intelligence that integrates seamlessly with Phase 2's spec system while maintaining full compatibility with your proven multi-agent architecture.
+This revised Phase 3 plan focuses on the natural progression from requirements to design, leveraging the robust foundation built in Phase 2 while avoiding the complexity of parallel steering systems.
 
-### **Phase 4: Kiro's Intelligent Hook Orchestration**
+### **Phase 4: Task Generation & Workflow Integration**
 
-**What Kiro Adds**: Event-driven intelligence that orchestrates workflows at the right moments
+**What Phase 3 Enables**: With validated requirements and comprehensive designs, Phase 4 completes the spec workflow by generating actionable implementation tasks and integrating with the existing PROJECT_BACKLOG.md workflow.
 
-**Kiro's Unique Hook Approach**:
-- **Contextual Triggers**: Hooks understand project context and current work phase
-- **Intelligent Orchestration**: Hooks coordinate multiple tools and agents seamlessly
-- **Learning Patterns**: Hooks adapt based on project patterns and user preferences
-- **Workflow Preservation**: Hooks enhance existing workflows without disrupting them
+**Phase 4 Focus**: Transform design documents into structured, agent-aware implementation tasks that seamlessly integrate with the proven multi-agent coordination system.
 
-**Kiro's Intelligent Hooks**:
+**Key Integration Points**:
+- **Design-Driven Tasks**: Generate tasks directly from design specifications
+- **Agent Specialization**: Respect existing .cursor/rules/ agent patterns
+- **Quality Gate Preservation**: Maintain all existing quality requirements
+- **Backlog Integration**: Seamless integration with PROJECT_BACKLOG.md workflow
+- **Context Preservation**: Maintain full spec context during task execution
+
+**Task Generation Intelligence**:
 ```markdown
-# .kiro/hooks/on-save/edge-function-save.md
-## Kiro's Edge Function Save Intelligence
-**Trigger**: File save in supabase/functions/**/*.ts
-**Kiro's Orchestration**:
-1. **Context Analysis**: Understand what changed and impact scope
-2. **Dependency Check**: Verify import_map.json compliance
-3. **Pattern Validation**: Check AI Adapter Pattern usage
-4. **Test Suggestion**: Suggest relevant test updates based on changes
-5. **Quality Gate**: Auto-trigger appropriate reviews if needed
+# Implementation Tasks: Real-Time Multiplayer Card Battles
+## Generated from: .kiro/specs/multiplayer-battles/design.md
+## Agent Assignments: Based on .cursor/rules/ specializations
 
-**Kiro's Smart Decisions**:
-- Minor changes: Just validate patterns
-- New functions: Suggest full test suite creation
-- Security-related changes: Auto-trigger Qwen Code review
-- API changes: Suggest documentation updates
+### Phase 1: Foundation (System Architect)
+- [ ] 1.1 Create database schema for battle tables
+  - **Design Reference**: Section 3.2 - Data Models
+  - **Requirements Trace**: REQ-003 - Battle state persistence
+  - **Quality Gate**: Architecture review required
 
-# .kiro/hooks/on-commit/quality-gate.md
-## Kiro's Commit Quality Intelligence
-**Trigger**: Git commit preparation
-**Kiro's Orchestration**:
-1. **Change Analysis**: Understand scope and impact of changes
-2. **Quality Validation**: Run appropriate quality checks
-3. **Documentation Check**: Verify documentation updates if needed
-4. **Test Coverage**: Ensure test coverage for new functionality
-5. **Review Routing**: Route to appropriate reviewers based on change type
+- [ ] 1.2 Set up Supabase Realtime configuration
+  - **Design Reference**: Section 2.1 - Real-time Architecture
+  - **Requirements Trace**: REQ-001 - Real-time communication
+  - **Quality Gate**: Performance review required
 
-# .kiro/hooks/on-test-fail/intelligent-debugging.md
-## Kiro's Test Failure Intelligence
-**Trigger**: Test failure detected
-**Kiro's Orchestration**:
-1. **Failure Analysis**: Understand failure patterns and likely causes
-2. **Context Gathering**: Collect relevant logs, environment info
-3. **Pattern Recognition**: Compare to known failure patterns
-4. **Solution Suggestion**: Suggest likely fixes based on project patterns
-5. **Agent Routing**: Route to appropriate agent for resolution
+### Phase 2: Core Implementation (Feature Developer)
+- [ ] 2.1 Implement battle state management Edge Function
+  - **Design Reference**: Section 2.3 - Battle Manager Component
+  - **Requirements Trace**: REQ-002 - Move processing within 100ms
+  - **Quality Gate**: Code review + real API testing
 
-# .kiro/hooks/on-review-request/context-preparation.md
-## Kiro's Review Request Intelligence
-**Trigger**: Code review requested
-**Kiro's Orchestration**:
-1. **Context Packaging**: Prepare comprehensive context for reviewer
-2. **Change Summary**: Generate intelligent change summary
-3. **Risk Assessment**: Identify potential risks and concerns
-4. **Reviewer Selection**: Suggest appropriate reviewer based on expertise
-5. **Quality Checklist**: Generate review checklist based on change type
+- [ ] 2.2 Implement WebSocket connection handling
+  - **Design Reference**: Section 2.2 - Connection Management
+  - **Requirements Trace**: REQ-004 - Connection recovery
+  - **Quality Gate**: Integration testing required
+
+### Phase 3: Integration & Testing (Quality Assurance)
+- [ ] 3.1 Create integration tests for real-time functionality
+  - **Design Reference**: Section 4.0 - Testing Strategy
+  - **Requirements Trace**: All acceptance criteria
+  - **Quality Gate**: Test coverage > 80%
+
+### Phase 4: Documentation (Documentation Writer)
+- [ ] 4.1 Update API documentation for battle endpoints
+  - **Design Reference**: Section 3.0 - API Design
+  - **Requirements Trace**: REQ-005 - API documentation
+  - **Quality Gate**: Documentation review required
 ```
 
-**Key Difference**: Kiro's hooks are intelligent orchestrators that understand context and make smart decisions, not just simple automation triggers.
+**Key Difference**: Phase 4 creates a complete, validated workflow from idea to implementation while preserving all existing coordination patterns.
 
 ---
 
@@ -1529,31 +1493,32 @@ Kiro enhances: .kiro/hooks/ with WebSocket-specific triggers
 
 **Practical Outcome**: Kiro can intelligently suggest specs vs backlog based on task complexity
 
-### **Week 2: Phase 2 - Native Spec System (ENHANCED)**
-- [ ] **Day 1-2**: Create spec template infrastructure and validation system
-- [ ] **Day 3-4**: Implement interactive requirements gathering system
-- [ ] **Day 5-6**: Create design facilitation with architectural context
-- [ ] **Day 7**: Build intelligent task generation that respects `.cursor/rules/`
+### **Week 2: Phase 2 - Requirements System (COMPLETED ✅)**
+- [x] **Day 1-2**: Create spec template infrastructure and validation system
+- [x] **Day 3-4**: Implement interactive requirements gathering system
+- [x] **Day 5-6**: Create comprehensive validation and integration system
+- [x] **Day 7**: Build CLI interface and demonstration system
+- [x] **Test**: Complete requirements workflow with validation and integration
+
+**Practical Outcome**: ✅ **ACHIEVED** - Intelligent requirements gathering system that transforms rough ideas into validated, comprehensive requirements documents
+
+### **Week 3: Phase 3 - Design Document Generation (REVISED)**
+- [ ] **Day 1-2**: Create design template infrastructure with requirements integration
+- [ ] **Day 3-4**: Implement architectural intelligence and design generation system
+- [ ] **Day 5-6**: Build design validation and refinement system
+- [ ] **Day 7**: Create design-to-tasks bridge and workflow integration
+- [ ] **Test**: Complete requirements → design workflow with validation
+
+**Practical Outcome**: Transform validated requirements into comprehensive design documents with architectural intelligence and seamless task generation
+
+### **Week 4: Phase 4 - Task Generation & Workflow Integration**
+- [ ] **Day 1-2**: Implement design-driven task generation system
+- [ ] **Day 3-4**: Create agent-aware task assignment and backlog integration
+- [ ] **Day 5-6**: Build context preservation and progress tracking system
+- [ ] **Day 7**: Complete end-to-end workflow testing and validation
 - [ ] **Test**: Complete spec workflow from requirements → design → tasks → PROJECT_BACKLOG.md
 
-**Practical Outcome**: Complex features get systematic development with full context preservation and seamless backlog integration
-
-### **Week 3: Phase 3 - Dynamic Steering Intelligence (ENHANCED)**
-- [ ] **Day 1-2**: Create steering template infrastructure and Phase 2 integration
-- [ ] **Day 3-4**: Implement dynamic context intelligence system
-- [ ] **Day 5-6**: Build learning & adaptation engine with pattern recognition
-- [ ] **Day 7**: Implement validation system and integration testing
-- [ ] **Test**: Complete steering workflow with Phase 2 integration and learning adaptation
-
-**Practical Outcome**: Agents work smarter with dynamic, context-aware behavior that learns and adapts while seamlessly integrating with systematic spec development
-
-### **Week 4: Phase 4 - Intelligent Hook Orchestration**
-- [ ] **Day 1-3**: Implement on-save hooks with smart decision making
-- [ ] **Day 4-5**: Create on-commit quality gates with automatic routing
-- [ ] **Day 6-7**: Set up on-test-fail intelligent debugging assistance
-- [ ] **Test**: Hooks orchestrate workflows intelligently without disruption
-
-**Practical Outcome**: Event-driven automation that makes smart decisions about when and how to act
+**Practical Outcome**: Complete systematic feature development workflow that integrates seamlessly with existing multi-agent coordination
 
 ---
 
