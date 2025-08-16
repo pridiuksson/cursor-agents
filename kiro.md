@@ -73,9 +73,69 @@ graph TB
 
 ## **🔧 KIRO'S NATIVE INTEGRATION APPROACH**
 
-### **Phase 1: Kiro's Unique Intelligence Architecture**
+### **Phase 1: Smart Routing Foundation - IN PRACTICE**
 
-**What Kiro Brings**: Native capabilities that complement (not copy) the existing system
+**What This Means for Users**: Kiro intelligently decides when to use systematic specs vs proven backlog workflow
+
+**Day 1 Setup Experience**:
+```
+User: "I want to add Kiro to this project"
+↓
+Kiro analyzes existing system:
+- Reads .cursor/rules/ to understand agent personas
+- Reads agents.md to understand navigation hierarchy  
+- Reads PROJECT_BACKLOG.md to understand current task patterns
+- Analyzes supabase/functions/ to understand code patterns
+↓
+Kiro creates initial .kiro/ structure with intelligent routing
+```
+
+**Real User Interaction**:
+```
+User: "Add user profile management"
+
+WITHOUT Kiro (Current):
+agents.md → PROJECT_BACKLOG.md → System Architect creates plan
+
+WITH Kiro Phase 1:
+User: "Add user profile management"
+↓
+Kiro analyzes request complexity:
+- Single component? → Route to PROJECT_BACKLOG.md
+- Multiple components? → Suggest .kiro/specs/ approach
+- Security-critical? → Auto-flag for enhanced review
+↓
+Kiro decision: "This involves authentication, data modeling, and API design"
+↓
+Kiro suggests: "This looks complex - would you like me to create a systematic spec for this, or handle it as a standard backlog task?"
+```
+
+**Technical Implementation**:
+```json
+// .kiro/settings/routing-rules.json (Created in Phase 1)
+{
+  "routingLogic": {
+    "useBacklog": {
+      "conditions": [
+        "single file changes",
+        "bug fixes", 
+        "documentation updates",
+        "simple feature additions"
+      ],
+      "maxEstimatedDays": 2
+    },
+    "suggestSpec": {
+      "conditions": [
+        "multiple agent assignments needed",
+        "requires architectural decisions",
+        "involves new patterns",
+        "cross-functional impact"
+      ],
+      "minEstimatedDays": 3
+    }
+  }
+}
+```
 
 **Kiro's Native Structure** (Based on Kiro's Strengths):
 ```
@@ -100,17 +160,98 @@ graph TB
 │   ├── on-commit/                 # Git commit triggers
 │   ├── on-test-fail/              # Test failure triggers
 │   └── on-review-request/         # Review request triggers
+├── bridge/                        # Bidirectional sync intelligence
+│   ├── sync-engine.md             # Core sync logic and rules
+│   ├── conflict-resolution.md     # How to handle sync conflicts
+│   ├── change-detection.md        # What changes trigger syncs
+│   └── validation-rules.md        # Ensure sync integrity
+├── mappings/                      # Bridge mappings between systems
+│   ├── cursor-to-kiro.json        # .cursor/rules/ → .kiro/ mappings
+│   ├── backlog-to-specs.json      # PROJECT_BACKLOG.md → .kiro/specs/ mappings
+│   └── agents-to-steering.json    # agents.md → .kiro/steering/ mappings
+├── watchers/                      # File system watchers for auto-sync
+│   ├── cursor-watcher.md           # Watch .cursor/rules/ changes
+│   ├── backlog-watcher.md          # Watch PROJECT_BACKLOG.md changes
+│   └── agents-watcher.md           # Watch agents.md changes
 └── settings/
+    ├── routing-rules.json          # When to use specs vs backlog
     ├── autopilot-boundaries.json  # What Kiro can/cannot automate
     ├── context-management.json    # How to preserve context
     └── integration-points.json    # How to work with existing system
 ```
 
-**Key Insight**: This structure leverages Kiro's unique strengths rather than copying other tools' patterns.
+**Key Insight**: Phase 1 creates intelligent routing and bidirectional sync infrastructure.
 
-### **Phase 2: Kiro's Spec-Driven Development Integration**
+### **Phase 2: Native Spec System - IN PRACTICE**
 
-**What Kiro Adds**: Systematic feature development with preserved context and intelligent task generation
+**What This Means for Users**: Systematic feature development with full context preservation and intelligent task generation
+
+**Real Spec Creation Workflow**:
+```
+User: "Add real-time multiplayer card battles"
+↓
+Kiro (Phase 1 routing): "This is complex - creating spec"
+↓
+Kiro creates: .kiro/specs/multiplayer-battles/
+↓
+Kiro starts interactive requirements gathering:
+
+Kiro: "Let's gather requirements systematically. What's the core user experience you want?"
+User: "Players should be able to challenge each other and play in real-time"
+Kiro: "I'll structure this. What about turn timing?"
+User: "30 seconds per turn, with timeout handling"
+Kiro: "What happens if someone disconnects?"
+User: "Game should pause and allow reconnection"
+
+↓
+Kiro creates: .kiro/specs/multiplayer-battles/requirements.md
+```
+
+**Kiro's Requirements Intelligence**:
+```markdown
+# .kiro/specs/multiplayer-battles/requirements.md (Auto-generated by Kiro)
+## Requirements (Kiro-Guided Process)
+**Stakeholder**: Product Owner
+**Gathered**: 2025-01-16 via Kiro requirements interview
+**Context**: Existing card system, need for real-time gameplay
+
+### User Stories (Kiro-Structured)
+1. **As a player**, I want to challenge other players to card battles
+   - **Kiro Analysis**: Requires matchmaking system, challenge notifications
+2. **As a player**, I want real-time turn-based gameplay  
+   - **Kiro Analysis**: WebSocket connections, state synchronization
+3. **As a player**, I want to see battle results and statistics
+   - **Kiro Analysis**: Battle history storage, statistics calculation
+
+### Acceptance Criteria (Kiro-Validated against existing system)
+- Real-time WebSocket connection with <100ms latency
+  - **Kiro Note**: Supabase Realtime available, check current usage patterns
+- Turn timeout mechanism (30 seconds per turn)
+  - **Kiro Note**: Need server-side timer management
+- Battle state persistence across disconnections
+  - **Kiro Note**: Integrate with existing PostgreSQL + RLS patterns
+
+### Technical Constraints (Kiro-Identified)
+- Must use existing AI Adapter Pattern for any AI features
+- Must follow stateless Edge Function principles
+- Must integrate with existing authentication system
+- Must use real API testing (no mocking per ADR-005)
+```
+
+**Kiro's Design Intelligence**:
+```
+After requirements, Kiro facilitates design:
+
+Kiro: "Based on your existing architecture, I see you use Supabase + Edge Functions. For real-time, should we use Supabase Realtime or implement custom WebSockets?"
+
+User: "Use Supabase Realtime"
+
+Kiro: "I'll design around that. For battle state, should we extend your existing 'cards' table or create separate battle tables?"
+
+User: "Separate battle tables"
+
+Kiro creates design.md with architectural decisions and rationale
+```
 
 **Kiro's Unique Approach**:
 - **Interactive Requirements**: Kiro guides stakeholder through systematic requirements gathering
@@ -118,56 +259,60 @@ graph TB
 - **Intelligent Task Generation**: Kiro creates tasks that respect existing agent specializations
 - **Context Preservation**: Kiro maintains full context from requirements through implementation
 
-**Example Kiro Spec Workflow**:
+**Kiro's Task Generation Intelligence**:
 ```markdown
-# .kiro/specs/multiplayer-battles/requirements.md
-## Requirements (Kiro-Guided Process)
-**Stakeholder**: Product Owner
-**Gathered**: 2025-01-16 via Kiro requirements interview
-
-### User Stories (Kiro-Structured)
-1. **As a player**, I want to challenge other players to card battles
-2. **As a player**, I want real-time turn-based gameplay
-3. **As a player**, I want to see battle results and statistics
-
-### Acceptance Criteria (Kiro-Validated)
-- Real-time WebSocket connection with <100ms latency
-- Turn timeout mechanism (30 seconds per turn)
-- Battle state persistence across disconnections
-
-# .kiro/specs/multiplayer-battles/design.md
-## Design (Kiro-Facilitated)
-**Architect**: System Architect (via Kiro design session)
-**Context**: Existing card system, WebSocket infrastructure needs
-
-### Architecture Decisions (Kiro-Guided)
-- WebSocket connection management via Supabase Realtime
-- Battle state stored in PostgreSQL with RLS
-- Turn management via server-side state machine
-
 # .kiro/specs/multiplayer-battles/tasks.md (Kiro-Generated)
 ## Implementation Tasks
 **Generated by**: Kiro task intelligence
-**Respects**: Existing .cursor/rules/ agent specializations
+**Respects**: Existing .cursor/rules/ agent specializations  
 **Preserves**: All quality gates and review requirements
+**Links to**: PROJECT_BACKLOG.md for execution
 
 ### **MULT-001: Multiplayer Card Battles - HIGH PRIORITY**
-- [ ] **`using system-architect.rules`** Create detailed implementation plan
-- [ ] **Gemini CLI consultation**: `@supabase/functions/ analyze WebSocket patterns`
-- [ ] **`using feature-dev.rules`** Implement WebSocket connection handler
-- [ ] **Qwen Code consultation**: Review real-time security patterns
-- [ ] **`using feature-dev.rules`** Create turn management system
-- [ ] **`using docs-writer.rules`** Update API documentation
+**Generated from**: .kiro/specs/multiplayer-battles/
+**Effort**: 7-10 days (Kiro estimate based on complexity analysis)
+**Impact**: Major new feature enabling social gameplay
 
-# .kiro/specs/multiplayer-battles/context.md (Kiro-Preserved)
-## Context Preservation
-**Requirements Context**: Stakeholder priorities, business constraints
-**Design Context**: Architectural decisions, trade-offs made
-**Implementation Context**: Technical challenges, solutions chosen
-**Review Context**: Security considerations, performance requirements
+**Execution Plan** (Kiro-generated, respects existing patterns):
+- [ ] **`using system-architect.rules`** Create detailed implementation plan
+  - **Kiro Context**: Review .kiro/specs/multiplayer-battles/design.md
+  - **Kiro Bridge**: This task links to spec context for full understanding
+- [ ] **Gemini CLI consultation**: `@supabase/functions/ analyze WebSocket patterns`
+  - **Kiro Enhancement**: Auto-provide spec context to Gemini CLI
+- [ ] **`using feature-dev.rules`** Implement battle table schema
+  - **Kiro Context**: Follow existing RLS patterns from cards table
+  - **Kiro Steering**: Apply database patterns from .kiro/steering/
+- [ ] **Qwen Code consultation**: Review real-time security patterns
+  - **Kiro Enhancement**: Auto-trigger when WebSocket code is written
+- [ ] **`using feature-dev.rules`** Implement WebSocket connection handler
+  - **Kiro Context**: Use Supabase Realtime per design decisions
+- [ ] **`using docs-writer.rules`** Update API documentation
+  - **Kiro Context**: Include real-time API patterns in documentation
+
+**Kiro Bridges Created**:
+- Spec context available during all task execution
+- Task completion updates spec progress
+- Generated tasks follow existing PROJECT_BACKLOG.md patterns
+- All agent assignments respect .cursor/rules/ specializations
 ```
 
-**Key Difference**: Kiro doesn't just generate tasks - it preserves the entire context journey from requirements to implementation.
+**Bidirectional Sync in Action**:
+```
+When tasks are generated:
+1. Kiro adds them to PROJECT_BACKLOG.md (existing workflow)
+2. Kiro maintains link: backlog task ↔ originating spec
+3. When System Architect executes task, spec context is available
+4. When task is completed, spec progress is updated
+5. When all spec tasks complete, spec is marked done
+
+When .cursor/rules/ changes:
+1. Kiro detects change in system-architect.mdc
+2. Kiro updates task generation templates
+3. Future specs use updated agent patterns
+4. Existing specs remain unchanged (stability)
+```
+
+**Key Difference**: Kiro doesn't just generate tasks - it preserves the entire context journey from requirements to implementation and maintains living bridges between spec and execution systems.
 
 ### **Phase 3: Kiro's Dynamic Steering Intelligence**
 
@@ -341,55 +486,413 @@ Kiro hooks: Auto-testing, auto-security-review, auto-documentation
 
 **Result**: Right workflow for right complexity, native Kiro power + proven agent coordination.
 
-### **🔄 Critical: Automatic Sync System (Following Gemini CLI Pattern)**
+### **🔄 BIDIRECTIONAL BRIDGE ARCHITECTURE**
 
-**Inspired by**: `.gemini/commands/workflow/sync.toml` that keeps Gemini CLI aligned with `.cursor/rules/`
+**The Challenge**: Keep Kiro's native structure synchronized with current workflows in **both directions**
 
-**Kiro Sync Mechanism**:
-```markdown
-# .kiro/sync/auto-sync.md
-## Automatic Sync with .cursor/rules/ (Ground Truth)
-
-### Sync Triggers:
-- Changes detected in .cursor/rules/agents/
-- Changes detected in .cursor/rules/core/
-- Changes detected in .cursor/rules/protocols/
-
-### Sync Actions:
-1. Update .kiro/steering/ enhancements to match new persona capabilities
-2. Update .kiro/hooks/ to use latest protocol patterns
-3. Update .kiro/specs/ task generation to use current agent assignments
-4. Validate no conflicts between Kiro enhancements and .cursor/rules/
-
-### Sync Command:
-`kiro sync` - Like Gemini CLI's `@workflow:sync`
+**Kiro's Bidirectional Sync System**:
+```
+.kiro/
+├── bridge/                        # Bidirectional sync intelligence
+│   ├── sync-engine.md             # Core sync logic and rules
+│   ├── conflict-resolution.md     # How to handle sync conflicts
+│   ├── change-detection.md        # What changes trigger syncs
+│   └── validation-rules.md        # Ensure sync integrity
+├── mappings/                      # Bridge mappings between systems
+│   ├── cursor-to-kiro.json        # .cursor/rules/ → .kiro/ mappings
+│   ├── backlog-to-specs.json      # PROJECT_BACKLOG.md → .kiro/specs/ mappings
+│   └── agents-to-steering.json    # agents.md → .kiro/steering/ mappings
+└── watchers/                      # File system watchers for auto-sync
+    ├── cursor-watcher.md           # Watch .cursor/rules/ changes
+    ├── backlog-watcher.md          # Watch PROJECT_BACKLOG.md changes
+    └── agents-watcher.md           # Watch agents.md changes
 ```
 
-**Key Insight**: Just like Gemini CLI never gets outdated from `.cursor/rules/`, Kiro will automatically stay synchronized with the proven system.
+### **Bidirectional Sync Flows**
+
+**Flow 1: .cursor/rules/ Changes → Kiro Updates**
+```
+1. Change detected in .cursor/rules/agents/system-architect.mdc
+2. Kiro analyzes: "New directive added about quality gates"
+3. Kiro updates: .kiro/steering/project-context.md with new quality gate context
+4. Kiro updates: .kiro/hooks/on-commit/quality-gate.md with new validation
+5. Kiro validates: No conflicts with existing Kiro intelligence
+```
+
+**Flow 2: PROJECT_BACKLOG.md Changes → Kiro Specs**
+```
+1. New complex task added to PROJECT_BACKLOG.md
+2. Kiro analyzes: "This task has multiple components, should be a spec"
+3. Kiro suggests: "Convert to .kiro/specs/[feature-name]/ for better management"
+4. If accepted: Kiro creates spec structure and links back to backlog
+5. Kiro maintains: Bidirectional link between spec and backlog task
+```
+
+**Flow 3: Kiro Specs → PROJECT_BACKLOG.md Updates**
+```
+1. Kiro spec completed: .kiro/specs/multiplayer-battles/tasks.md
+2. Kiro generates: Structured tasks for PROJECT_BACKLOG.md
+3. Kiro inserts: Tasks with proper agent assignments and quality gates
+4. Kiro maintains: Link between generated tasks and originating spec
+5. Kiro tracks: Task completion status back to spec progress
+```
+
+**Flow 4: agents.md Changes → Kiro Routing**
+```
+1. Change detected in agents.md navigation hierarchy
+2. Kiro analyzes: "New documentation section added"
+3. Kiro updates: .kiro/steering/file-patterns/docs.md with new context
+4. Kiro updates: Routing rules to respect new hierarchy
+5. Kiro validates: All steering still respects single entry point
+```
+
+### **🔧 SPECIFIC BRIDGE MECHANISMS**
+
+**1. Smart Mapping System**
+```json
+// .kiro/mappings/cursor-to-kiro.json
+{
+  "bridges": {
+    ".cursor/rules/agents/system-architect.mdc": {
+      "affects": [
+        ".kiro/steering/project-context.md",
+        ".kiro/specs/*/tasks.md",
+        ".kiro/hooks/on-commit/quality-gate.md"
+      ],
+      "syncRules": {
+        "newDirectives": "append-to-steering",
+        "changedProtocols": "update-hooks",
+        "removedRules": "validate-and-remove"
+      }
+    },
+    ".cursor/rules/agents/feature-dev.mdc": {
+      "affects": [
+        ".kiro/steering/file-patterns/edge-functions.md",
+        ".kiro/hooks/on-save/edge-function-save.md"
+      ],
+      "syncRules": {
+        "newPatterns": "enhance-steering",
+        "changedRequirements": "update-hooks"
+      }
+    }
+  }
+}
+
+// .kiro/mappings/backlog-to-specs.json
+{
+  "conversionRules": {
+    "complexityThreshold": {
+      "multipleComponents": true,
+      "estimatedDays": ">= 3",
+      "requiresDesign": true,
+      "crossFunctional": true
+    },
+    "autoConversion": false,
+    "suggestionTriggers": [
+      "multiple agent assignments",
+      "architectural decisions needed",
+      "requirements gathering needed"
+    ]
+  }
+}
+```
+
+**2. Conflict Resolution System**
+```markdown
+# .kiro/bridge/conflict-resolution.md
+## Conflict Resolution Rules
+
+### Priority Hierarchy (When conflicts occur):
+1. .cursor/rules/ ALWAYS wins (ground truth)
+2. agents.md navigation ALWAYS preserved
+3. PROJECT_BACKLOG.md task assignments respected
+4. Kiro enhancements adapt to changes, never override
+
+### Conflict Types & Resolutions:
+- **Directive Conflicts**: .cursor/rules/ directive vs Kiro steering
+  - Resolution: Update Kiro steering to align with .cursor/rules/
+- **Navigation Conflicts**: agents.md hierarchy vs Kiro routing
+  - Resolution: Update Kiro routing to respect agents.md
+- **Task Assignment Conflicts**: Backlog assignment vs Kiro generation
+  - Resolution: Kiro adapts generation to match backlog patterns
+
+### Validation Checks:
+- No Kiro enhancement contradicts .cursor/rules/
+- All Kiro routing respects agents.md hierarchy
+- All generated tasks follow existing backlog patterns
+```
+
+**3. Change Detection & Auto-Sync**
+```markdown
+# .kiro/watchers/cursor-watcher.md
+## .cursor/rules/ Change Detection
+
+### Watch Patterns:
+- .cursor/rules/agents/*.mdc
+- .cursor/rules/core/*.mdc
+- .cursor/rules/protocols/*.mdc
+
+### Sync Actions by Change Type:
+- **New Agent Directive**: Update corresponding .kiro/steering/
+- **Changed Protocol**: Update .kiro/hooks/ that use the protocol
+- **Removed Rule**: Validate and remove from Kiro enhancements
+- **New Agent**: Create corresponding Kiro steering patterns
+
+### Auto-Sync Process:
+1. Detect change via file system watcher
+2. Parse change to understand impact
+3. Identify affected Kiro components
+4. Update Kiro components following mapping rules
+5. Validate no conflicts introduced
+6. Log sync action for audit trail
+```
+
+**4. Bidirectional Task Flow**
+```markdown
+# .kiro/bridge/task-flow.md
+## Bidirectional Task Management
+
+### Backlog → Spec Conversion:
+1. Monitor PROJECT_BACKLOG.md for complex tasks
+2. Analyze task complexity using conversion rules
+3. Suggest spec creation for qualifying tasks
+4. If accepted: Create .kiro/specs/[feature]/ structure
+5. Maintain link: spec ↔ original backlog task
+
+### Spec → Backlog Generation:
+1. Monitor .kiro/specs/*/tasks.md completion
+2. Generate structured tasks for PROJECT_BACKLOG.md
+3. Preserve agent assignments from .cursor/rules/
+4. Maintain link: generated tasks ↔ originating spec
+5. Track completion: backlog task completion → spec progress
+
+### Link Maintenance:
+- Each spec task references originating backlog item
+- Each generated backlog task references originating spec
+- Status sync: spec progress ↔ backlog task completion
+- Context preservation: spec context available during task execution
+```
+
+**Key Insight**: Kiro maintains **living bridges** that keep both systems synchronized while preserving the proven system as ground truth.
+
+### **🎯 PRACTICAL BRIDGE EXAMPLE**
+
+**Scenario**: System Architect persona gets updated with new quality gate requirement
+
+**Step 1: Change Detection**
+```
+File changed: .cursor/rules/agents/system-architect.mdc
+New directive added: "All implementations require performance benchmarking"
+```
+
+**Step 2: Impact Analysis**
+```
+Kiro analyzes affected components:
+- .kiro/steering/project-context.md (needs performance context)
+- .kiro/hooks/on-commit/quality-gate.md (needs benchmark trigger)
+- .kiro/specs/*/tasks.md templates (need benchmark tasks)
+```
+
+**Step 3: Bidirectional Updates**
+```
+Kiro updates:
+1. .kiro/steering/project-context.md
+   + "Performance benchmarking required for all implementations"
+   
+2. .kiro/hooks/on-commit/quality-gate.md
+   + Auto-trigger performance benchmark on significant changes
+   
+3. .kiro/specs/task-templates/
+   + Add benchmark task template for future spec generation
+```
+
+**Step 4: Validation & Sync**
+```
+Kiro validates:
+- No conflicts with existing steering rules ✅
+- Performance requirement aligns with project quality standards ✅
+- Benchmark hooks respect existing quality gates ✅
+
+Kiro logs:
+"Sync completed: system-architect.mdc → 3 Kiro components updated"
+```
+
+**Result**: Kiro's native intelligence now includes the new performance requirement across all its systems, while the proven `.cursor/rules/` system remains the authoritative source.
+
+### **🔄 REVERSE SYNC EXAMPLE**
+
+**Scenario**: Kiro spec generates insights that should enhance the proven system
+
+**Step 1: Kiro Learning**
+```
+During .kiro/specs/multiplayer-battles/ development:
+Kiro identifies: "WebSocket patterns could be standardized"
+Kiro suggests: "Add WebSocket guidance to .cursor/rules/protocols/"
+```
+
+**Step 2: Human Review**
+```
+Kiro presents suggestion to user:
+"Based on multiplayer spec work, should we add WebSocket protocol guidance?"
+User approves: "Yes, add to .cursor/rules/protocols/websocket-patterns.mdc"
+```
+
+**Step 3: Proven System Enhancement**
+```
+User creates: .cursor/rules/protocols/websocket-patterns.mdc
+Content includes: Patterns learned from Kiro spec development
+```
+
+**Step 4: Auto-Sync Back to Kiro**
+```
+Kiro detects: New protocol file created
+Kiro updates: .kiro/steering/file-patterns/ with WebSocket intelligence
+Kiro enhances: .kiro/hooks/ with WebSocket-specific triggers
+```
+
+**Result**: Kiro's insights enhance the proven system, which then automatically enhances Kiro's future capabilities. True bidirectional learning.
 
 ---
 
-## **🚀 IMPLEMENTATION ROADMAP (Refined)**
+## **🚀 IMPLEMENTATION ROADMAP (Practical Steps)**
 
-### **Week 1: Foundation Setup**
-- [ ] Create minimal `.kiro/settings/` structure
-- [ ] Configure context preservation for agent handoffs
-- [ ] Test with simple workflow (no disruption to current system)
+### **Week 1: Phase 1 - Smart Routing Foundation**
+- [ ] **Day 1-2**: Create `.kiro/settings/routing-rules.json` with complexity analysis
+- [ ] **Day 3-4**: Set up `.kiro/bridge/` and `.kiro/mappings/` for bidirectional sync
+- [ ] **Day 5-7**: Create file watchers (`.kiro/watchers/`) for auto-sync with `.cursor/rules/`
+- [ ] **Test**: Simple task routing works, no disruption to existing workflows
 
-### **Week 2: Autopilot Integration**
-- [ ] Define safe automation boundaries
-- [ ] Implement boilerplate handling for imports/error patterns
-- [ ] Validate that agent specialization is preserved
+**Practical Outcome**: Kiro can intelligently suggest specs vs backlog based on task complexity
 
-### **Week 3: Tool Orchestration**
-- [ ] Enhance Gemini CLI integration with automatic context provision
-- [ ] Enhance Qwen Code integration with automatic review triggers
-- [ ] Ensure all existing protocols are preserved
+### **Week 2: Phase 2 - Native Spec System**
+- [ ] **Day 1-3**: Implement interactive requirements gathering system
+- [ ] **Day 4-5**: Create design facilitation with architectural context
+- [ ] **Day 6-7**: Build intelligent task generation that respects `.cursor/rules/`
+- [ ] **Test**: Complete spec workflow from requirements → tasks → PROJECT_BACKLOG.md
 
-### **Week 4: Quality Gate Automation**
-- [ ] Implement automatic quality gate triggers
-- [ ] Validate that manual oversight is preserved
-- [ ] Document enhanced workflow patterns
+**Practical Outcome**: Complex features get systematic development with full context preservation
+
+### **Week 3: Phase 3 - Dynamic Steering Intelligence**
+- [ ] **Day 1-3**: Create project-context steering that enhances all agents
+- [ ] **Day 4-5**: Implement file-pattern steering (edge-functions, tests, docs)
+- [ ] **Day 6-7**: Set up manual-context steering for specialized work
+- [ ] **Test**: Agents get enhanced context based on current work
+
+**Practical Outcome**: Agents work smarter with dynamic, context-aware behavior
+
+### **Week 4: Phase 4 - Intelligent Hook Orchestration**
+- [ ] **Day 1-3**: Implement on-save hooks with smart decision making
+- [ ] **Day 4-5**: Create on-commit quality gates with automatic routing
+- [ ] **Day 6-7**: Set up on-test-fail intelligent debugging assistance
+- [ ] **Test**: Hooks orchestrate workflows intelligently without disruption
+
+**Practical Outcome**: Event-driven automation that makes smart decisions about when and how to act
+
+---
+
+## **🔧 TECHNICAL IMPLEMENTATION DETAILS**
+
+### **Phase 1 Technical Reality**
+```javascript
+// Kiro's routing intelligence (conceptual implementation)
+class KiroRouter {
+  analyzeRequest(userRequest) {
+    const complexity = this.assessComplexity(userRequest);
+    const existingPatterns = this.checkBacklogPatterns();
+    
+    if (complexity.score > this.thresholds.specSuggestion) {
+      return {
+        route: 'spec',
+        reason: `Complex request (${complexity.factors.join(', ')})`,
+        suggestion: 'Create systematic spec for better management'
+      };
+    }
+    
+    return {
+      route: 'backlog',
+      reason: 'Straightforward task, existing workflow optimal'
+    };
+  }
+  
+  assessComplexity(request) {
+    return {
+      score: this.calculateComplexityScore(request),
+      factors: this.identifyComplexityFactors(request)
+    };
+  }
+}
+```
+
+### **Phase 2 Technical Reality**
+```javascript
+// Kiro's spec intelligence (conceptual implementation)
+class KiroSpecSystem {
+  async createSpec(featureName, userInput) {
+    // Interactive requirements gathering
+    const requirements = await this.gatherRequirements(userInput);
+    
+    // Design facilitation with existing system context
+    const design = await this.facilitateDesign(requirements, this.systemContext);
+    
+    // Task generation respecting existing agent patterns
+    const tasks = await this.generateTasks(design, this.agentPatterns);
+    
+    // Bridge to existing system
+    await this.bridgeToBacklog(tasks);
+    
+    return {
+      spec: { requirements, design, tasks },
+      backlogIntegration: this.backlogLinks,
+      contextPreservation: this.contextData
+    };
+  }
+  
+  async gatherRequirements(userInput) {
+    // Interactive process that builds structured requirements
+    return await this.interactiveRequirementsSession(userInput);
+  }
+  
+  async generateTasks(design, agentPatterns) {
+    // Generate tasks that respect existing .cursor/rules/ patterns
+    return this.createTasksWithAgentAssignments(design, agentPatterns);
+  }
+}
+```
+
+### **Bidirectional Sync Technical Reality**
+```javascript
+// Kiro's sync engine (conceptual implementation)
+class KiroBridgeSystem {
+  constructor() {
+    this.watchers = new FileSystemWatchers();
+    this.mappings = new SyncMappings();
+    this.conflictResolver = new ConflictResolver();
+  }
+  
+  async syncCursorRulesToKiro(changedFile) {
+    const affectedComponents = this.mappings.getAffectedKiroComponents(changedFile);
+    
+    for (const component of affectedComponents) {
+      const syncRules = this.mappings.getSyncRules(changedFile, component);
+      await this.applySyncRules(component, syncRules);
+    }
+    
+    await this.validateNoConflicts();
+  }
+  
+  async syncKiroToBacklog(specTasks) {
+    const backlogTasks = this.generateBacklogTasks(specTasks);
+    await this.insertIntoBacklog(backlogTasks);
+    await this.maintainBidirectionalLinks(specTasks, backlogTasks);
+  }
+}
+```
+
+**Key Technical Insights**:
+- **Smart Routing**: Uses complexity analysis to make intelligent routing decisions
+- **Context Preservation**: Maintains full context across all phases and handoffs
+- **Bidirectional Sync**: Living bridges that keep both systems synchronized
+- **Conflict Resolution**: Proven system always wins when conflicts occur
 
 ---
 
