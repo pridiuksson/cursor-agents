@@ -31,150 +31,341 @@ After thorough analysis of the current multi-agent system, I discovered this is 
 
 ---
 
-## **Integration Architecture: Preserve & Amplify Excellence**
+## **Integration Architecture: Kiro's Native Intelligence**
 
-**Core Principle**: Kiro as **enhancement layer** that amplifies existing proven system without creating parallel workflows or duplicate systems.
+**Core Principle**: Kiro brings its unique strengths while respecting and enhancing the proven system architecture.
 
 ```mermaid
 graph TB
-    subgraph "Proven Foundation (Untouched & Preserved)"
-        A[agents.md - Single Entry Point]
-        B[.cursor/rules/ - Agent Personas]
-        C[PROJECT_BACKLOG.md - Task Management]
-        D[Gemini CLI + Qwen Code - Tools]
-        E[Quality Gates - Validation]
+    subgraph "Kiro's Native Intelligence Layer"
+        A[Spec System - Systematic Feature Development]
+        B[Context Engine - Session & Agent Memory]
+        C[Steering Intelligence - Dynamic Behavior]
+        D[Autopilot Zones - Smart Automation]
+        E[Hook Orchestration - Event-Driven Workflows]
     end
     
-    subgraph "Kiro Enhancement Layer (Additive Only)"
-        F[Context Preservation - Session Memory]
-        G[Autopilot Boundaries - Routine Tasks]
-        H[Smart Interruption - Flow Protection]
-        I[Tool Orchestration - Seamless Integration]
+    subgraph "Proven System (Preserved & Enhanced)"
+        F[agents.md - Single Entry Point]
+        G[.cursor/rules/ - Agent Personas]
+        H[PROJECT_BACKLOG.md - Task Management]
+        I[Quality Gates - Validation]
     end
     
-    A --> F
-    B --> G
-    C --> H
-    D --> I
-    E --> I
+    F -->|Routes Complex Features| A
+    F -->|Routes Simple Tasks| H
+    A -->|Generates Structured Tasks| H
+    B -->|Preserves Context Across| G
+    C -->|Adapts Behavior For| G
+    D -->|Automates Routine Work In| H
+    E -->|Orchestrates Tools For| I
     
-    style F fill:#e8f5e8
-    style G fill:#fff3e0
-    style H fill:#fce4ec
-    style I fill:#f3e5f5
+    style A fill:#e1f5fe
+    style B fill:#e8f5e8
+    style C fill:#fff3e0
+    style D fill:#f3e5f5
+    style E fill:#fce4ec
 ```
 
-**Key Insight**: No `.kiro/specs/`, no `.kiro/steering/`, no parallel systems. Only intelligent enhancement of what already works exceptionally well.
+**Key Insight**: Kiro's intelligence layer amplifies the proven system's strengths while adding systematic approaches for complex work.
 
 ---
 
-## **🔧 REFINED KIRO INTEGRATION PLAN**
+## **🔧 KIRO'S NATIVE INTEGRATION APPROACH**
 
-### **Phase 1: Intelligent Context Preservation**
+### **Phase 1: Kiro's Unique Intelligence Architecture**
 
-**What Kiro Adds**: Session memory and context continuity across agent handoffs
+**What Kiro Brings**: Native capabilities that complement (not copy) the existing system
 
-**Integration**:
-- **Preserve**: All existing `.cursor/rules/` and `agents.md` hierarchy (untouched)
-- **Enhance**: Kiro maintains context between System Architect → Feature Developer → Qwen Code handoffs
-- **Benefit**: Zero context loss during multi-agent coordination
-
-**Implementation**:
-```yaml
-# .kiro/settings/context-management.json
-{
-  "preserveContext": {
-    "agentHandoffs": true,
-    "sessionMemory": "smart-chunking",
-    "documentationHierarchy": "respect-agents-md"
-  }
-}
+**Kiro's Native Structure** (Based on Kiro's Strengths):
+```
+.kiro/
+├── specs/                         # Kiro's systematic feature development
+│   └── [feature-name]/
+│       ├── requirements.md        # Interactive requirements gathering
+│       ├── design.md              # Collaborative design process
+│       ├── tasks.md               # Smart task generation
+│       └── context.md             # Preserved context across phases
+├── steering/                      # Kiro's dynamic behavior adaptation
+│   ├── project-context.md         # Always-applied project intelligence
+│   ├── file-patterns/             # Context-aware file-specific rules
+│   │   ├── edge-functions.md      # When working on supabase/functions/
+│   │   ├── tests.md               # When working on tests/
+│   │   └── docs.md                # When working on documentation
+│   └── manual-contexts/           # User-invoked specialized contexts
+│       ├── security-review.md     # For security-critical work
+│       └── architecture-review.md # For architectural decisions
+├── hooks/                         # Kiro's event-driven intelligence
+│   ├── on-save/                   # File save triggers
+│   ├── on-commit/                 # Git commit triggers
+│   ├── on-test-fail/              # Test failure triggers
+│   └── on-review-request/         # Review request triggers
+└── settings/
+    ├── autopilot-boundaries.json  # What Kiro can/cannot automate
+    ├── context-management.json    # How to preserve context
+    └── integration-points.json    # How to work with existing system
 ```
 
-### **Phase 2: Smart Autopilot Boundaries**
+**Key Insight**: This structure leverages Kiro's unique strengths rather than copying other tools' patterns.
 
-**What Kiro Adds**: Intelligent automation for routine tasks while preserving agent specialization
+### **Phase 2: Kiro's Spec-Driven Development Integration**
 
-**Integration**:
-- **Preserve**: All agent personas and their specialized roles (untouched)
-- **Enhance**: Kiro handles boilerplate (imports, error handling patterns) while agents focus on logic
-- **Benefit**: Agents spend time on high-value work, not repetitive tasks
+**What Kiro Adds**: Systematic feature development with preserved context and intelligent task generation
 
-**Smart Boundaries**:
-```yaml
-autopilot:
-  allowed:
-    - Import statement management per import_map.json
-    - Error handling boilerplate per ADR patterns
-    - Test file creation following existing patterns
-  forbidden:
-    - Business logic decisions
-    - Security implementations
-    - Architectural changes
-    - Agent persona modifications
+**Kiro's Unique Approach**:
+- **Interactive Requirements**: Kiro guides stakeholder through systematic requirements gathering
+- **Collaborative Design**: Kiro facilitates design decisions with architectural context
+- **Intelligent Task Generation**: Kiro creates tasks that respect existing agent specializations
+- **Context Preservation**: Kiro maintains full context from requirements through implementation
+
+**Example Kiro Spec Workflow**:
+```markdown
+# .kiro/specs/multiplayer-battles/requirements.md
+## Requirements (Kiro-Guided Process)
+**Stakeholder**: Product Owner
+**Gathered**: 2025-01-16 via Kiro requirements interview
+
+### User Stories (Kiro-Structured)
+1. **As a player**, I want to challenge other players to card battles
+2. **As a player**, I want real-time turn-based gameplay
+3. **As a player**, I want to see battle results and statistics
+
+### Acceptance Criteria (Kiro-Validated)
+- Real-time WebSocket connection with <100ms latency
+- Turn timeout mechanism (30 seconds per turn)
+- Battle state persistence across disconnections
+
+# .kiro/specs/multiplayer-battles/design.md
+## Design (Kiro-Facilitated)
+**Architect**: System Architect (via Kiro design session)
+**Context**: Existing card system, WebSocket infrastructure needs
+
+### Architecture Decisions (Kiro-Guided)
+- WebSocket connection management via Supabase Realtime
+- Battle state stored in PostgreSQL with RLS
+- Turn management via server-side state machine
+
+# .kiro/specs/multiplayer-battles/tasks.md (Kiro-Generated)
+## Implementation Tasks
+**Generated by**: Kiro task intelligence
+**Respects**: Existing .cursor/rules/ agent specializations
+**Preserves**: All quality gates and review requirements
+
+### **MULT-001: Multiplayer Card Battles - HIGH PRIORITY**
+- [ ] **`using system-architect.rules`** Create detailed implementation plan
+- [ ] **Gemini CLI consultation**: `@supabase/functions/ analyze WebSocket patterns`
+- [ ] **`using feature-dev.rules`** Implement WebSocket connection handler
+- [ ] **Qwen Code consultation**: Review real-time security patterns
+- [ ] **`using feature-dev.rules`** Create turn management system
+- [ ] **`using docs-writer.rules`** Update API documentation
+
+# .kiro/specs/multiplayer-battles/context.md (Kiro-Preserved)
+## Context Preservation
+**Requirements Context**: Stakeholder priorities, business constraints
+**Design Context**: Architectural decisions, trade-offs made
+**Implementation Context**: Technical challenges, solutions chosen
+**Review Context**: Security considerations, performance requirements
 ```
 
-### **Phase 3: Workflow Orchestration Enhancement**
+**Key Difference**: Kiro doesn't just generate tasks - it preserves the entire context journey from requirements to implementation.
 
-**What Kiro Adds**: Seamless tool integration and workflow optimization
+### **Phase 3: Kiro's Dynamic Steering Intelligence**
 
-**Integration**:
-- **Preserve**: Existing Gemini CLI and Qwen Code protocols (untouched)
-- **Enhance**: Kiro orchestrates tool calls based on current agent context
-- **Benefit**: Tools work together automatically, following established protocols
+**What Kiro Adds**: Context-aware behavior adaptation that goes beyond static enhancement
 
-**Example Enhancement**:
+**Kiro's Unique Steering Approach**:
+- **Project Intelligence**: Deep understanding of project context and history
+- **Dynamic Adaptation**: Behavior changes based on current work context
+- **Learning System**: Kiro learns from patterns and improves steering over time
+- **Contextual Awareness**: Different behavior for different file types, project phases, etc.
+
+**Kiro's Steering Examples**:
+```markdown
+# .kiro/steering/project-context.md
+## Kiro's Project Intelligence (Always Applied)
+**Project**: Playable Character Cards - AI-generated character mini-games
+**Architecture**: Supabase + Deno Edge Functions + TypeScript
+**Quality Philosophy**: Real API testing, code-first documentation, security-first
+
+**Kiro's Enhanced Context for ALL agents**:
+- Understand this is a production system, not a prototype
+- Recognize the sophisticated multi-agent coordination already in place
+- Respect the single entry point philosophy (agents.md)
+- Maintain the high quality standards already established
+
+# .kiro/steering/file-patterns/edge-functions.md
+## Kiro's Edge Function Intelligence (Conditional: supabase/functions/**)
+**Context**: Working on Supabase Edge Function
+**Kiro's Dynamic Behavior**:
+- Auto-load import_map.json patterns for dependency suggestions
+- Recognize AI Adapter Pattern requirements and suggest appropriate adapters
+- Understand stateless function requirements and flag stateful patterns
+- Auto-suggest error handling patterns from existing ADRs
+- Recognize testing requirements and suggest test file creation
+
+# .kiro/steering/file-patterns/tests.md
+## Kiro's Testing Intelligence (Conditional: tests/**)
+**Context**: Working on test files
+**Kiro's Dynamic Behavior**:
+- Enforce real API testing philosophy (no mocking)
+- Suggest integration test patterns from existing test files
+- Auto-load environment variable requirements
+- Recognize test data patterns and suggest fixtures
+- Understand quality gate requirements for test coverage
+
+# .kiro/steering/manual-contexts/security-review.md
+## Kiro's Security Intelligence (Manual: #security-review)
+**Context**: Security-critical work requested
+**Kiro's Enhanced Behavior**:
+- Auto-invoke Qwen Code consultation patterns
+- Apply enhanced scrutiny to input validation
+- Recognize credential handling patterns and enforce security rules
+- Suggest security testing patterns
+- Flag potential security anti-patterns
 ```
-Current: System Architect manually calls `gemini -p "@supabase/functions/ analyze patterns"`
-Enhanced: Kiro automatically triggers Gemini CLI when System Architect needs context
-Result: Same proven workflow, zero manual tool coordination
+
+**Key Difference**: Kiro's steering is dynamic and intelligent, not just static rule enhancement.
+
+### **Phase 4: Kiro's Intelligent Hook Orchestration**
+
+**What Kiro Adds**: Event-driven intelligence that orchestrates workflows at the right moments
+
+**Kiro's Unique Hook Approach**:
+- **Contextual Triggers**: Hooks understand project context and current work phase
+- **Intelligent Orchestration**: Hooks coordinate multiple tools and agents seamlessly
+- **Learning Patterns**: Hooks adapt based on project patterns and user preferences
+- **Workflow Preservation**: Hooks enhance existing workflows without disrupting them
+
+**Kiro's Intelligent Hooks**:
+```markdown
+# .kiro/hooks/on-save/edge-function-save.md
+## Kiro's Edge Function Save Intelligence
+**Trigger**: File save in supabase/functions/**/*.ts
+**Kiro's Orchestration**:
+1. **Context Analysis**: Understand what changed and impact scope
+2. **Dependency Check**: Verify import_map.json compliance
+3. **Pattern Validation**: Check AI Adapter Pattern usage
+4. **Test Suggestion**: Suggest relevant test updates based on changes
+5. **Quality Gate**: Auto-trigger appropriate reviews if needed
+
+**Kiro's Smart Decisions**:
+- Minor changes: Just validate patterns
+- New functions: Suggest full test suite creation
+- Security-related changes: Auto-trigger Qwen Code review
+- API changes: Suggest documentation updates
+
+# .kiro/hooks/on-commit/quality-gate.md
+## Kiro's Commit Quality Intelligence
+**Trigger**: Git commit preparation
+**Kiro's Orchestration**:
+1. **Change Analysis**: Understand scope and impact of changes
+2. **Quality Validation**: Run appropriate quality checks
+3. **Documentation Check**: Verify documentation updates if needed
+4. **Test Coverage**: Ensure test coverage for new functionality
+5. **Review Routing**: Route to appropriate reviewers based on change type
+
+# .kiro/hooks/on-test-fail/intelligent-debugging.md
+## Kiro's Test Failure Intelligence
+**Trigger**: Test failure detected
+**Kiro's Orchestration**:
+1. **Failure Analysis**: Understand failure patterns and likely causes
+2. **Context Gathering**: Collect relevant logs, environment info
+3. **Pattern Recognition**: Compare to known failure patterns
+4. **Solution Suggestion**: Suggest likely fixes based on project patterns
+5. **Agent Routing**: Route to appropriate agent for resolution
+
+# .kiro/hooks/on-review-request/context-preparation.md
+## Kiro's Review Request Intelligence
+**Trigger**: Code review requested
+**Kiro's Orchestration**:
+1. **Context Packaging**: Prepare comprehensive context for reviewer
+2. **Change Summary**: Generate intelligent change summary
+3. **Risk Assessment**: Identify potential risks and concerns
+4. **Reviewer Selection**: Suggest appropriate reviewer based on expertise
+5. **Quality Checklist**: Generate review checklist based on change type
 ```
 
-### **Phase 4: Quality Gate Automation**
-
-**What Kiro Adds**: Automated quality gate triggers while preserving manual oversight
-
-**Integration**:
-- **Preserve**: All existing quality gates and Qwen Code review requirements (untouched)
-- **Enhance**: Kiro automatically triggers reviews at appropriate workflow points
-- **Benefit**: No missed quality gates, faster feedback loops
+**Key Difference**: Kiro's hooks are intelligent orchestrators that understand context and make smart decisions, not just simple automation triggers.
 
 ---
 
 ## **🎯 SPECIFIC KIRO CONFIGURATION FOR THIS PROJECT**
 
-### **Minimal .kiro Structure (Additive Only)**
+### **Native Bridge .kiro Structure**
 
 ```
 .kiro/
-├── settings/
-│   ├── context-management.json    # Session memory configuration
-│   ├── autopilot-boundaries.json  # Safe automation limits
-│   └── tool-orchestration.json    # Gemini CLI + Qwen Code integration
-└── README.md                      # Points to agents.md as primary entry
+├── specs/                         # Complex feature development
+│   └── [feature-name]/
+│       ├── requirements.md        # Systematic requirements gathering
+│       ├── design.md              # Architecture and design decisions
+│       └── tasks.md               # Generated tasks → PROJECT_BACKLOG.md
+├── steering/                      # Context enhancement for agents
+│   ├── always-apply.md            # Core project rules (enhances .cursor/rules/)
+│   ├── supabase-patterns.md       # Conditional: *.ts in supabase/functions/
+│   └── security-focus.md          # Manual: security-critical changes
+├── hooks/                         # Smart automation triggers
+│   ├── test-on-save.md            # Auto-run tests for Edge Functions
+│   ├── security-review.md         # Auto-trigger Qwen Code for auth changes
+│   └── doc-sync.md                # Auto-update docs on API changes
+└── settings/
+    ├── routing-rules.json         # When to use specs vs backlog
+    └── integration-config.json    # Bridge configuration
 ```
 
-**Key Point**: No `.kiro/specs/`, no `.kiro/steering/`, no parallel systems.
+**Key Point**: Native Kiro workflows that intelligently bridge to proven system.
 
-### **Enhanced Agent Workflow (Example)**
+### **Smart Workflow Routing Examples**
 
-**Before (Current - Already Excellent)**:
+**Simple Task (Direct to Backlog)**:
 ```
-1. User: "Add authentication system"
-2. System Architect: Creates plan, manually calls Gemini CLI for context
-3. Feature Developer: Implements, manually calls Qwen Code for review
-4. Documentation Writer: Updates docs, manually validates patterns
-```
-
-**After (Kiro Enhanced)**:
-```
-1. User: "Add authentication system"
-2. System Architect: Creates plan, Kiro auto-provides relevant context
-3. Feature Developer: Implements, Kiro auto-handles imports/boilerplate, auto-triggers Qwen review
-4. Documentation Writer: Updates docs, Kiro auto-validates against semantic patterns
+User: "Fix bug in create-card function"
+↓
+agents.md → PROJECT_BACKLOG.md → System Architect → Feature Developer
+↓
+Kiro hooks: Auto-test, auto-review, auto-doc-update
 ```
 
-**Result**: Same proven workflow, 60% less manual coordination, zero context loss.
+**Complex Feature (Kiro Spec → Bridge)**:
+```
+User: "Add real-time multiplayer card battles"
+↓
+agents.md → .kiro/specs/multiplayer/ → Requirements → Design → Tasks
+↓
+Generated tasks → PROJECT_BACKLOG.md → System Architect → Feature Developer
+↓
+Kiro steering: Applies real-time patterns, security rules, performance guidelines
+↓
+Kiro hooks: Auto-testing, auto-security-review, auto-documentation
+```
+
+**Result**: Right workflow for right complexity, native Kiro power + proven agent coordination.
+
+### **🔄 Critical: Automatic Sync System (Following Gemini CLI Pattern)**
+
+**Inspired by**: `.gemini/commands/workflow/sync.toml` that keeps Gemini CLI aligned with `.cursor/rules/`
+
+**Kiro Sync Mechanism**:
+```markdown
+# .kiro/sync/auto-sync.md
+## Automatic Sync with .cursor/rules/ (Ground Truth)
+
+### Sync Triggers:
+- Changes detected in .cursor/rules/agents/
+- Changes detected in .cursor/rules/core/
+- Changes detected in .cursor/rules/protocols/
+
+### Sync Actions:
+1. Update .kiro/steering/ enhancements to match new persona capabilities
+2. Update .kiro/hooks/ to use latest protocol patterns
+3. Update .kiro/specs/ task generation to use current agent assignments
+4. Validate no conflicts between Kiro enhancements and .cursor/rules/
+
+### Sync Command:
+`kiro sync` - Like Gemini CLI's `@workflow:sync`
+```
+
+**Key Insight**: Just like Gemini CLI never gets outdated from `.cursor/rules/`, Kiro will automatically stay synchronized with the proven system.
 
 ---
 
