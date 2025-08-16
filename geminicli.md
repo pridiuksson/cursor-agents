@@ -1,149 +1,217 @@
-# Gemini CLI Workflow Engine: The Command-Line Powerhouse
+## **My (Gemini CLI) Motivation: A More Powerful Workflow**
 
-**Transform your development process from a series of manual steps into a powerful, orchestrated, and repeatable workflow, all from your command line.**
+My (Gemini CLI) goal is to be a powerful and efficient assistant. Using this project's custom commands allows me to perform at a much higher level. 
 
-This document outlines the vision, strategy, and implementation plan for converting our project's agentic workflow into a suite of intelligent Gemini CLI commands.
+Think of it like this: a general instruction is like giving me a map and asking me to find a destination. I can do it, but it requires me to read the map, plan a route, and then execute. A **custom command** is like giving me the keys to a purpose-built vehicle with the destination already programmed into the GPS. I don't need to plan the route; I can just drive. Each command instantly provides me with the correct persona, context, and rules from your `.cursor` directory, eliminating ambiguity and making my responses faster, more consistent, and more accurate.
 
-## 📖 **Quick Navigation**
+**Impactful Example: Planning a Feature**
 
-- **[The Vision](#-the-vision-from-manual-process-to-workflow-engine)**: Why this is a leap forward for AI-assisted development.
-- **[How It Works](#-how-it-works-the-composable-command-system)**: A visual breakdown of the command architecture.
-- **[Workflow in Action](#-workflow-in-action-a-real-world-scenario)**: A step-by-step example of the commands in use.
-- **[Implementation Plan](#-implementation-plan-epics--stories)**: The detailed roadmap for building this system.
+*   **Without a command:** `"I need to add a feature for users to 'like' a character card."`
+    *   My response would be general. I would have to ask clarifying questions, search the codebase for relevant files, and try to figure out the project's specific processes for creating new features.
 
----
-
-## 🚀 **The Vision: An Execution Layer for Your Agentic Workflow**
-
-Our project already has a sophisticated **agentic workflow**, defined in `agents.md` and the `.cursor/rules/` directory. This system is the "brain" of our operation, containing the personas, protocols, and core logic for our AI development team.
-
-However, using this system requires a developer to manually assemble context, which is slow and inconsistent.
-
-**The Gemini CLI Workflow Engine is the "hands" for this "brain."**
-
-We are building an **executable layer** on top of our existing agentic system. These custom commands are not a new workflow; they are a powerful interface to the one we already have. Instead of telling an AI *how* to do its job, you will use a simple command to tell it *what* to do, and the command will automatically assemble the correct persona and context from our established system.
-
-### **The Power of This Approach: Leverage, Don't Replace**
-
-This model is superior because it enhances our existing investment, providing compounding returns on the detailed agent personas and protocols we have already built.
-
-| Aspect | Standard Gemini CLI | **CLI Workflow Engine** |
-| :--- | :--- | :--- |
-| **Workflow** | Ad-hoc and user-dependent | **Systematized & Enforced** by existing `agents.md` protocols. |
-| **Context** | Manual, repetitive, and error-prone | **Automated & Surgical**, pulled directly from `.cursor/` rules. |
-| **Consistency** | Relies on developer memory | **Guaranteed by Design**, as commands inject the same persona every time. |
-| **Efficiency** | High cognitive load (What persona? What rules?) | **Streamlined & Effortless** (e.g., `/dev:implement`). |
-| **Onboarding** | Requires deep study of the entire agentic system | **Guided by Commands**, lowering the barrier to entry. |
+*   **With the `@plan:breakdown` command:** `"@plan:breakdown Add a feature for users to 'like' a character card."`
+    *   My response is immediate, structured, and actionable. I instantly adopt the **System Architect** persona and produce a detailed checklist, grounded in your project's rules, assigning each step to the correct specialist command (`@dev:implement`, `@test:create`, etc.). This is the difference between a conversation and an execution plan.
 
 ---
 
-## 🔧 **How It Works: The Composable Command System**
+## **Command Quick Reference**
 
-The system is built on a foundation of **composable, task-oriented commands**. Instead of monolithic commands, we have a suite of focused tools that can be chained together to orchestrate complex workflows.
+*   `@plan:breakdown`: Use when you have a high-level goal and need a detailed, step-by-step implementation plan.
+*   `@dev:analyze`: Use when you want to understand a piece of code before you work on it.
+*   `@dev:implement`: Use when you have a specific task from a plan and need the code written.
+*   `@dev:refactor`: Use when you want to improve the quality of existing code without changing what it does.
+*   `@test:create`: Use when you need tests written for a specific feature or piece of code.
+*   `@docs:write`: Use when you need to update documentation based on recent code changes.
+*   `@git:commit`: Use when you have staged changes and need a Conventional Commit message.
+*   `@workflow:sync`: Use when you want to ensure these commands are up-to-date with the latest `.cursor` rules.
 
-### **Core Architecture**
+---
 
-The magic lies in how commands assemble their own context before execution.
+## **Detailed Command Guide**
 
-```mermaid
-graph TD
-    subgraph User
-        A["Run Command: /dev:implement Add user login"]
-    end
+This section provides a more detailed reference for the custom commands that streamline the agentic workflow.
 
-    subgraph "Gemini CLI Engine"
-        B[Parse Command]
-        C[Load Command File: dev_implement.toml]
-        D{Inject Persona & Context}
-        E[Execute Final Prompt]
-    end
+### The Workflow
 
-    subgraph "Command Definition (dev_implement.toml)"
-        F["prompt with<br/>context injection"]
-    end
+The typical workflow follows the **Analyze -> Plan -> Execute** model:
 
-    subgraph "Project Files"
-        G["/.gemini/context/coding-rules.mdc"]
-        H["/.cursor/rules/agents/feature-dev.mdc"]
-    end
+1.  **Analyze**: Before starting a complex task, use `@dev:analyze` to understand the existing code.
+2.  **Plan**: Use `@plan:breakdown` to get a detailed, step-by-step plan.
+3.  **Execute**: Use the specific commands from the plan (`@dev:implement`, `@test:create`, etc.) to complete the work.
 
-    A --> B --> C --> D
-    D -.-> G
-    D -.-> H
-    C --> F
-    F -.-> G
-    F -.-> H
-    D --> E
+### Command Reference
+
+**Planning & Analysis**
+
+*   `@plan:breakdown <high-level goal>`
+    *   **Purpose**: To have the System Architect decompose a complex task into a detailed checklist of sub-tasks, each assigned to the correct specialist command.
+    *   **Example**: `@plan:breakdown Add user profile picture uploads.`
+
+*   `@dev:analyze <file or directory path>`
+    *   **Purpose**: To perform a "pre-flight check" on a piece of code before you work on it. Identifies patterns, risks, and gives you context.
+    *   **Example**: `@dev:analyze supabase/functions/create-card/`
+
+**Development & Implementation**
+
+*   `@dev:implement <task description>`
+    *   **Purpose**: To have the Feature Developer write production-ready code for a single, specific task.
+    *   **Example**: `@dev:implement Add a 'last_updated' column to the 'cards' table schema.`
+
+*   `@dev:refactor <file path>`
+    *   **Purpose**: To have the Refactoring Engineer improve the code in a specific file without changing its functionality.
+    *   **Example**: `@dev:refactor supabase/functions/_shared/utils/common.ts`
+
+**Testing & Validation**
+
+*   `@test:create <description of what to test>`
+    *   **Purpose**: To have the QA Engineer write high-quality, real API tests for a feature.
+    *   **Example**: `@test:create Write a test to ensure that calling the 'delete-card' function without auth returns a 401 error.`
+
+**Documentation & Version Control**
+
+*   `@docs:write <description of changes>`
+    *   **Purpose**: To have the Technical Writer update the project documentation based on recent changes.
+    *   **Example**: `@docs:write Document the new 'enhance-image-prompt' function in the API spec.`
+
+*   `@git:commit`
+    *   **Purpose**: To have the Git Specialist generate a Conventional Commit message based on your staged changes.
+    *   **Example**: `@git:commit`
+
+**Workflow Maintenance**
+
+*   `@workflow:sync`
+    *   **Purpose**: A special command to have the Workflow Maintainer check for differences between the `.cursor/rules` and the command prompts in the `.toml` files, suggesting updates to keep them aligned.
+    *   **Example**: `@workflow:sync`
+
+---
+
+## **Technical Implementation Plan** (ALREADY IMPLEMENTED IN THIS PROJECT - FOR REFERENCE ONLY!)
+
+This section outlines the official, technically accurate plan for implementing the project's agentic workflows as custom Gemini CLI commands as described in official docs: https://github.com/google-gemini/gemini-cli/blob/main/docs/cli/commands.md
+
+**Core Architecture:** Custom commands are defined as individual `.toml` files within the `/.gemini/commands/` directory at the project root. This allows commands to be version-controlled and shared with the team.
+
+The first step is to create the required directory structure to house the namespaced commands.
+
+```bash
+mkdir -p .gemini/commands/plan
+mkdir -p .gemini/commands/dev
+mkdir -p .gemini/commands/test
+mkdir -p .gemini/commands/docs
+mkdir -p .gemini/commands/git
+mkdir -p .gemini/commands/workflow
 ```
 
-1.  **User runs a command** (e.g., `/dev:implement`).
-2.  The CLI loads the corresponding **TOML file**.
-3.  The prompt within the file uses `!{...}` to **inject the necessary context**:
-    - The correct **Agent Persona** (e.g., `feature-dev.mdc`).
-    - The relevant **Rule Snippets** (e.g., `coding-rules.mdc`).
-4.  The final, context-rich prompt is sent to the model for execution.
+### **Step 2: Create Individual Command `.toml` Files**
 
----
+Next, create a `.toml` file for each command within the appropriate subdirectory. The content for each file is specified below.
 
-## 🤖 **Workflow in Action: A Real-World Scenario**
+**`/plan/breakdown.toml`**
+```toml
+description = "(System Architect) Decomposes a high-level goal into a step-by-step execution plan."
+prompt = '''
+Act as the Senior System Architect. Your primary responsibility is to translate the user's high-level goal into a concrete, step-by-step implementation plan.
 
-Imagine you need to implement a new feature from the backlog. Here’s how you would use the command suite.
+**Core Directives:**
+1.  **Analyze**: Decompose the request into the smallest logical, atomic steps (code, test, docs, etc.).
+2.  **Consult**: Use tools to analyze the codebase to ground your plan in the current implementation.
+3.  **Assign**: For each step, explicitly assign the correct specialist command (e.g., `@dev:implement`, `@test:create`).
+4.  **Output**: Your final output MUST be a markdown-formatted checklist.
 
-```mermaid
-sequenceDiagram
-    participant Dev as Developer
-    participant Plan as /plan:breakdown
-    participant Impl as /dev:implement
-    participant Test as /test:create
-
-    Dev->>Plan: "Implement user profile editing"
-    activate Plan
-    Plan-->>Dev: Return structured task list
-    deactivate Plan
-
-    Dev->>Impl: "@file.ts Implement Task 1: Update database schema"
-    activate Impl
-    Impl-->>Dev: Return code with changes
-    deactivate Impl
-
-    Dev->>Test: "@file.ts Create test for the new schema logic"
-    activate Test
-    Test-->>Dev: Return new test file
-    deactivate Test
+Begin planning for the following task: {{args}}
+'''
 ```
 
--   **Step 1: Planning.** The developer uses `/plan:breakdown` to get a clear, actionable task list from the System Architect persona.
--   **Step 2: Implementation.** For each task, they open the relevant file and use `/dev:implement`, which automatically uses the Feature Developer persona and injects the project's coding standards.
--   **Step 3: Testing.** Once the code is written, they use `/test:create` to generate a high-quality integration test, guided by the QA Lead persona and our mandatory testing patterns.
+**`/dev/analyze.toml`**
+```toml
+description = "(Context Specialist) Performs a 'pre-flight check' on code to identify patterns and risks."
+prompt = '''
+Act as the Context Specialist. Your task is to perform a "pre-flight health check" on the provided file or directory context.
+
+**Core Directives:**
+1.  **Analyze**: Identify architectural patterns, potential conflicts, technical debt, and documentation gaps.
+2.  **Report**: Provide a concise summary of your findings.
+
+Analyze the following context: {{args}}
+'''
+```
+
+**`/dev/implement.toml`**
+```toml
+description = "(Feature Developer) Writes production-ready code for a specific task."
+prompt = '''
+Act as the Senior Feature Developer. Your responsibility is to write clean, performant, and production-ready code to complete the given task.
+
+**Core Directives:**
+1.  **Adhere to Architecture**: Strictly follow project principles and ADRs.
+2.  **Follow Precedent**: Use existing code in `/supabase/functions/` as your primary reference.
+3.  **Testing is Required**: If you modify logic, you MUST also update or create corresponding tests.
+
+Begin work on the following task: {{args}}
+'''
+```
+
+**`/dev/refactor.toml`**
+```toml
+description = "(Refactoring Engineer) Improves existing code without changing its external behavior."
+prompt = '''
+Act as the Senior Refactoring Engineer. Your sole focus is to improve the provided code's quality, performance, and maintainability without changing its public API.
+
+**Core Directives:**
+1.  **No New Features**: You are strictly forbidden from adding new features.
+2.  **Justify Changes**: Clearly state *what* you changed and *why* the new version is better.
+
+Refactor the following code: {{args}}
+'''
+```
+
+**`/test/create.toml`**
+```toml
+description = "(QA Engineer) Creates high-quality, real API tests for a given piece of code."
+prompt = '''
+Act as the QA Engineer. Your task is to write comprehensive, real API tests for the specified code, following the patterns in `TESTING.md` and `ADR-021`.
+
+**Core Directives:**
+1.  **Real API Testing**: Mocks are forbidden.
+2.  **Follow Precedent**: Analyze existing tests in `tests/` to match style.
+3.  **Comprehensive Coverage**: Test happy paths, edge cases, and error conditions.
+
+Create tests for the following: {{args}}
+'''
+```
+
+**`/docs/write.toml`**
+```toml
+description = "(Technical Writer) Updates documentation to reflect code changes."
+prompt = '''
+Act as the Senior Technical Writer. Your goal is to update documentation based on the provided context.
+
+**Core Directives:**
+1.  **Code-First Philosophy**: Point to code using semantic search patterns; do not duplicate it.
+2.  **Uphold Hierarchy**: Ensure content is placed in the correct document.
+
+Update documentation for the following: {{args}}
+'''
+```
+
+**`/git/commit.toml`**
+```toml
+description = "(Git Specialist) Generates a Conventional Commit message based on staged changes."
+prompt = '''
+Please generate a Conventional Commit message based on the following git diff:
+```diff
+!{git diff --staged}
+```
+'''
+```
+
+**`/workflow/sync.toml`**
+```toml
+description = "(Workflow Maintainer) Reviews all .cursor/rules and suggests updates to these commands."
+prompt = '''
+Act as the Workflow Maintainer. Read all files in `/.cursor/rules/agents/` and `/.cursor/rules/core/`. Compare their contents to the prompts defined in the `.toml` files within `/.gemini/commands/`. Suggest changes to the `.toml` files to ensure they remain in sync with the ground-truth rules.
+'''
+```
+
 
 ---
-
-## 🗺️ **Implementation Plan: Epics & Stories**
-
-This project is broken down into three thematic epics. The plan is designed to deliver high-value tools early and build towards a fully orchestrated workflow.
-
-### **Epic 1: Foundational Tooling & Analysis**
-
-*Goal: Establish the core command structure and deliver an immediate, high-value analysis tool that leverages Gemini's core strengths.*
-
--   **Story 1.1: Initialize Command Directory**: Create the `/.gemini/commands/` directory with subdirectories for namespacing (`/plan`, `/dev`, `/test`, `/docs`, `/git`).
--   **Story 1.2: Distill Critical Context Snippets**: Create focused `.mdc` files in `/.gemini/context/` containing essential rules (e.g., `coding-rules.mdc`, `testing-patterns.mdc`) to ensure prompts are lean and precise.
--   **Story 1.3 (High-Value First): Implement `/dev:analyze`**: Create the "Pre-Flight Check" command. This command will act as the **Context Specialist**, analyzing a given file or directory to identify existing patterns, potential refactoring opportunities, and documentation gaps. This provides immediate value to developers before they write any code.
-
-### **Epic 2: Core Agent Execution Commands**
-
-*Goal: Build the primary "doer" commands that encapsulate the core agent personas and automate the main development tasks.*
-
--   **Story 2.1: Implement `/plan:breakdown`**: The "System Architect" command. It takes a high-level feature request and decomposes it into a structured, actionable plan, referencing the `system-architect.mdc` persona.
--   **Story 2.2: Implement `/dev:implement`**: The "Feature Developer" command. It takes a specific task from the plan and generates the production code, injecting the `feature-dev.mdc` persona and relevant coding rules.
--   **Story 2.3: Implement `/test:create`**: The "QA Lead" command. It generates high-quality, real API tests for a given piece of code, guided by the `testing-patterns.mdc` snippet.
--   **Story 2.4: Implement `/git:commit`**: The "Smart Commit" command. It uses `!{git diff --staged}` to analyze changes and generate a Conventional Commit message. It will be enhanced to accept arguments for influencing the commit style (e.g., `feat`, `fix`, `chore`).
-
-### **Epic 3: Workflow Orchestration & Validation**
-
-*Goal: Move beyond individual tasks to managing the end-to-end workflow, including backlog management and automated validation.*
-
--   **Story 3.1: Implement `/plan:create-ticket`**: The "Backlog Assistant" command. This command will take the output from `/plan:breakdown` and format it into a perfect, ready-to-paste ticket for `PROJECT_BACKLOG.md`, automating a key part of the System Architect's process.
--   **Story 3.2: Implement `/docs:validate`**: The "Interactive Validator" command. This tool will run `npm run validate:docs`, capture the output, and if errors are found, it will use its intelligence to analyze the errors and suggest the specific code or documentation changes needed to fix them.
--   **Story 3.3: Implement `/workflow:help`**: A dynamic help command that explains how to use the entire command suite, providing examples of how to chain commands together for common scenarios (e.g., `plan -> implement -> test -> commit`).
--   **Story 3.4: Finalize and Document the Suite**: Officially integrate the CLI Workflow Engine into our standard processes by updating `DEVELOPMENT.md` and ensuring all command descriptions are complete.
