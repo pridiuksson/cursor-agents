@@ -257,18 +257,23 @@ plan and phased execution.
 ### Planned initiatives — What and Why
 
 - **SYS‑002: Automated Project Health Check & Quality Gate System**
-  - **What (concise)**: Build a two‑layer automated health system (fast CI
-    checks + deep scans) with a human‑in‑the‑loop weekly review.
+  - **What (concise)**: Two‑layer health system: fast CI checks + a single
+    deep‑scan script (`scripts/health-checks/run-architecture-audit.js`) using
+    Gemini CLI; add a non‑blocking "Architecture Audit" job in CI‑Lite that
+    uploads `HEALTH_REPORT.md`.
   - **Why**: Catch architectural drift and doc/quality regressions early, shift
-    from reactive fixes to proactive maintenance, and reduce merge risk.
+    from reactive fixes to proactive maintenance, and reduce merge risk without
+    slowing merges.
 
 - **SYS‑003: TESTING.md Restructure for AI Agent Efficiency**
-  - **What (concise)**: Split `TESTING.md` into a small hub + 4 focused guides
-    (`ci-cd-guide`, `local-guide`, `troubleshooting-cookbook`, `browser-guide`),
-    add governance/validation, and migrate with a safe 2‑PR rollout.
-  - **Why**: Improve findability and reduce cognitive load for AI agents,
-    enforce code‑first patterns with semantic anchors, and make documentation
-    maintainable at scale without duplication.
+  - **What (concise)**: Split `TESTING.md` into a hub + 4 focused guides
+    (`ci-cd-guide`, `local-development-guide`, `troubleshooting-cookbook`,
+    `browser-testing-guide`); enforce cookbook schema (Error, Symptom, Root
+    Cause, Solution, Verification); add governance/validation; migrate via safe
+    2‑PR rollout.
+  - **Why**: Improve findability and reduce cognitive load for AI agents;
+    enforce code‑first semantic anchors; ensure maintainable, query‑friendly
+    docs.
 
 ---
 
