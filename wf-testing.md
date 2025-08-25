@@ -3,7 +3,7 @@
 Purpose: A concise, actionable overview for QA leadership and AI agents covering
 strategy, ownership, workflows, gates, and triage across CI/CD and local
 testing. This consolidates and refines our current documentation from
-`TESTING.md`, `DEVELOPMENT.md`, `ARCHITECTURE.md`, and `tests/`.
+`docs/testing/README.md`, `DEVELOPMENT.md`, `ARCHITECTURE.md`, and `tests/`.
 
 ---
 
@@ -23,7 +23,7 @@ testing. This consolidates and refines our current documentation from
 
 References
 
-- Strategy and commands: `TESTING.md`
+- Strategy and commands: `docs/testing/README.md`
 - Dev workflows and scripts: `DEVELOPMENT.md`
 - Architectural principles: `ARCHITECTURE.md`
 - Test suites: `tests/`
@@ -109,6 +109,11 @@ Primary checks (scoped for speed and relevance)
   spec; generated spec filters public visibility.
 - Unit tests — quick pass/fail signal.
 
+**Non-blocking Architecture Audit** (runs after fast checks)
+- Deep architectural scan using `scripts/health-checks/run-architecture-audit.js`
+- Uploads `HEALTH_REPORT.md` as artifact for review
+- Does not block merges; informational only
+
 Triage (use step names from logs)
 
 - ESLint: add cross‑runtime globals; keep scope tight.
@@ -123,8 +128,7 @@ Triage (use step names from logs)
 
 Fetching CI logs (GitHub CLI)
 
-- Use `gh run list` and `gh run view <id> --log` as documented in `TESTING.md`
-  (section 2.1).
+- Use the GitHub CLI commands in `docs/testing/ci-cd-guide.md` (Trigger, Logs).
 
 Merge policy
 
@@ -144,8 +148,8 @@ Pre‑requisites
 Run tests
 
 - All integration tests: `npm run test:integration` or `npm test`.
-- Individual suites: see scripts in `DEVELOPMENT.md` and commands in
-  `TESTING.md`.
+- Individual suites: see scripts in `DEVELOPMENT.md` and the local guide
+  `docs/testing/local-development-guide.md`.
 
 Common pitfalls (and fixes)
 
@@ -177,7 +181,8 @@ Typical flows
 
 Setup and commands
 
-- See `TESTING.md` section 4.x and `DEVELOPMENT.md` BrowserBase scripts.
+- See `docs/testing/browser-testing-guide.md` and BrowserBase scripts in
+  `DEVELOPMENT.md`.
 
 ---
 
@@ -193,7 +198,8 @@ When CI‑Lite fails
 
 When local integration fails
 
-1. Follow the Quick Debugging Checklist in `TESTING.md`.
+1. Follow the Quick Debugging Checklist in
+   `docs/testing/troubleshooting-cookbook.md`.
 2. Confirm Supabase is running and reachable; verify function config; ensure
    correct auth keys.
 3. Re‑run the specific failing test; add regression coverage if the bug was new.
@@ -244,28 +250,26 @@ Suggested QA metrics (track in backlog)
 
 ## 10) Continuous Improvement Backlog
 
-- Modularize `TESTING.md` into `docs/testing/` with focused guides (CI‑CD, local
-  integration, troubleshooting cookbook).
 - Expand `tests/regression/` continuously as defects are discovered and fixed.
 - Evaluate safe automation for portions of Tier 2 in a controlled environment.
 - Maintain semantic anchor patterns across documentation to keep it code‑first
   and robust to change.
+- Complete content migration from `TESTING.md` to focused guides (ongoing).
 
-See `backlogs/04_workflow_and_testing.md` (e.g., `SYS‑003`) for the detailed
-plan and phased execution.
+See `backlogs/04_workflow_and_testing.md` for detailed plans and phased execution.
 
 ### Planned initiatives — What and Why
 
-- **SYS‑002: Automated Project Health Check & Quality Gate System**
+- **SYS‑002: Automated Project Health Check & Quality Gate System** ✅ **Implemented**
   - **What (concise)**: Two‑layer health system: fast CI checks + a single
     deep‑scan script (`scripts/health-checks/run-architecture-audit.js`) using
-    Gemini CLI; add a non‑blocking "Architecture Audit" job in CI‑Lite that
-    uploads `HEALTH_REPORT.md`.
+    Gemini CLI; non‑blocking "Architecture Audit" job in CI‑Lite uploads
+    `HEALTH_REPORT.md`.
   - **Why**: Catch architectural drift and doc/quality regressions early, shift
     from reactive fixes to proactive maintenance, and reduce merge risk without
     slowing merges.
 
-- **SYS‑003: TESTING.md Restructure for AI Agent Efficiency**
+- **SYS‑003: TESTING.md Restructure for AI Agent Efficiency** ✅ **Implemented**
   - **What (concise)**: Split `TESTING.md` into a hub + 4 focused guides
     (`ci-cd-guide`, `local-development-guide`, `troubleshooting-cookbook`,
     `browser-testing-guide`); enforce cookbook schema (Error, Symptom, Root
@@ -274,6 +278,13 @@ plan and phased execution.
   - **Why**: Improve findability and reduce cognitive load for AI agents;
     enforce code‑first semantic anchors; ensure maintainable, query‑friendly
     docs.
+
+- **Content Migration Completion** 🔄 **In Progress**
+  - **What (concise)**: Complete migration of detailed content from `TESTING.md`
+    to focused guides; update internal references to eliminate dependency on
+    legacy `TESTING.md` structure.
+  - **Why**: Achieve full modular documentation structure; enable direct
+    query‑based access to solutions without cross‑referencing legacy docs.
 
 ---
 
@@ -297,6 +308,7 @@ cd supabase/admin_page && npx tsc --noEmit
 npm run validate:test-config
 npm run verify:private-endpoints
 npm run test:unit
+npm run health-check  # Architecture audit (non-blocking)
 ```
 
 Integration tests (local)
@@ -323,7 +335,7 @@ if ($runId) { gh run view $runId --repo $repo --log }
 
 ## 12) Pointers to Source of Truth
 
-- `TESTING.md` — deep procedure details and troubleshooting patterns.
+- `docs/testing/README.md` — hub to CI‑Lite, local, browser, cookbook.
 - `DEVELOPMENT.md` — complete development commands and environment setup.
 - `ARCHITECTURE.md` — principles, constraints, and endpoint inventory.
 - `tests/` — actual test implementations (integration, regression, unit, utils,
